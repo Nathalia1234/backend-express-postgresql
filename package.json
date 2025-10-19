@@ -1,0 +1,27 @@
+{
+  "name": "mini-projeto-fullstack-parte2",
+  "version": "1.0.0",
+  "description": "Este projeto é a **continuação do Mini-Projeto Fullstack (Parte I)**, evoluindo a aplicação backend para incluir uma **nova funcionalidade completa de CRUD** (Create, Read, Update e Delete) **protegida por autenticação JWT**.  \r A aplicação mantém a mesma estrutura de camadas (controllers, routes, services, models, database e middlewares), garantindo boas práticas e organização do código.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
+    "chalk": "^5.6.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.20.0",
+    "mongoose": "^8.19.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
