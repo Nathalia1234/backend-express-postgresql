@@ -96,7 +96,7 @@ A pasta `requests/` contém todas as requisições (local e produção).
 
 ## 🟣 Hospedagem e Acesso
 
-Backend em Produção: _(aguardando deploy no Vercel)_
+Backend em Produção: [Projeto em Produção](https://mini-projeto-fullstack-parte2.vercel.app/)
 
 Base URL Local: http://localhost:3000
 
@@ -109,7 +109,7 @@ Base URL Local: http://localhost:3000
   - `MONGO_URI`
   - `JWT_SECRET`
   - `PORT=3000` (opcional)
-- Após o deploy, o backend será acessível em: _(aguardando deploy no Vercel)_
+- Após o deploy, o backend será acessível em: [Projeto em Produção](https://mini-projeto-fullstack-parte2.vercel.app/)
 
 ---
 

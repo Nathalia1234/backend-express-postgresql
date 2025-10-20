@@ -1,11 +1,12 @@
-const NoteService = require('../services/note.service');
-const Note = require('../models/note.model');
-const logger = require('../middlewares/logger');
+import Note from  '../models/note.model.js';
+import { logger } from "../middlewares/logger.js";
+import mongoose from "mongoose";
+
 
 // ----------------------
 // Criar uma nova nota
 // ----------------------
-async function createNote(req, res) {
+export  async function create(req, res) {
   try {
     const { title, content } = req.body;
 
@@ -36,25 +37,34 @@ async function createNote(req, res) {
 // ----------------------
 // Listar todas as notas (com ou sem filtro)
 // ----------------------
-async function getAllNotes(req, res) {
+export  async function getAllNotes(req, res) {
   try {
-    const userId = req.user.id;
-    const filter = req.query && Object.keys(req.query).length > 0 ? req.query : {};
+    // Converte o ID do usuário autenticado para ObjectId
+    const userId = new mongoose.Types.ObjectId(req.user.id);
 
-    const notes = await Note.find({ userId, ...filter });
+    // Filtro base: notas pertencentes ao usuário autenticado
+    const filter = { userId };
 
-    if (Object.keys(filter).length > 0) {
-      logger.logInfo(
-        `🟡 Usuário ${userId} listou notas com filtro: ${JSON.stringify(filter)}`
-      );
+    // Se tiver parâmetro de título, aplica filtro com regex
+    if (req.query.title) {
+      filter.title = { $regex: req.query.title, $options: "i" };
+    }
+
+    logger.logInfo(`🔍 Filtro usado: ${JSON.stringify(filter)}`);
+
+    // Busca notas no MongoDB
+    const notes = await Note.find(filter);
+
+    if (notes.length > 0) {
+      logger.logInfo(`🟢 Usuário ${req.user.id} encontrou ${notes.length} notas.`);
     } else {
-      logger.logInfo(`🟡 Usuário ${userId} listou todas as notas`);
+      logger.logInfo(`🟡 Usuário ${req.user.id} não possui notas com o filtro aplicado.`);
     }
 
     return res.status(200).json(notes);
   } catch (error) {
     logger.logError(`Erro ao listar notas: ${error.message}`);
-    return res.status(500).json({ error: 'Erro ao listar notas.' });
+    return res.status(500).json({ error: "Erro ao listar notas." });
   }
 }
 
@@ -62,7 +72,7 @@ async function getAllNotes(req, res) {
 // ----------------------
 //  Buscar nota por ID
 // ----------------------
-async function getNoteById(req, res) {
+export  async function getNoteById(req, res) {
   try {
     const note = await Note.findById(req.params.id);
 
@@ -87,7 +97,7 @@ async function getNoteById(req, res) {
 // ----------------------
 // Atualizar nota (PUT )
 // ----------------------
-async function updateNote(req, res) {
+export  async function updateNote(req, res) {
   try {
     const note = await Note.findById(req.params.id);
 
@@ -114,7 +124,7 @@ async function updateNote(req, res) {
 }
 
 // Atualizar parcialmente nota (PATCH)
-async function patchNote(req, res) {
+export  async function patchNote(req, res) {
   try {
     const note = await Note.findById(req.params.id);
 
@@ -142,7 +152,7 @@ async function patchNote(req, res) {
 // ----------------------
 // Deletar nota
 // ----------------------
-async function deleteNote(req, res) {
+export  async function deleteNote(req, res) {
   try {
     const note = await Note.findById(req.params.id);
 
@@ -168,11 +178,3 @@ async function deleteNote(req, res) {
   }
 }
 
-module.exports = {
-  createNote,
-  getAllNotes,
-  getNoteById,
-  updateNote,
-  patchNote,
-  deleteNote
-};

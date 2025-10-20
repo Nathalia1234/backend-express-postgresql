@@ -1,27 +1,29 @@
-// Esse middleware é usado em qualquer rota que precise de autenticação.
-// Ele pega o token do cabeçalho Authorization, valida com jwt.verify() e adiciona os dados decodificados (req.user) para uso nas rotas seguintes.
-// Se o token estiver ausente ou inválido, retorna 401 Unauthorized.
-// src/middlewares/verifyToken.js
-const jwt = require('jsonwebtoken');
-const logger = require('./logger');
+import jwt from "jsonwebtoken";
+import { logger } from "./logger.js";
 
-function verifyToken(req, res, next) {
-  const token = req.header('Authorization')?.replace('Bearer ', '');
+// -----------------------------
+// Middleware de verificação do token JWT
+// -----------------------------
+export function verifyToken(req, res, next) {
+  const authHeader = req.headers.authorization;
 
-  if (!token) {
-    logger.logWarn(`Tentativa de acesso sem token`);
-    return res.status(401).json({ error: 'Token ausente. Acesso não autorizado.' });
+  // Verifica se o header Authorization existe e começa com "Bearer"
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    logger.logWarn("Tentativa de acesso sem token.");
+    return res.status(401).json({ error: "Token ausente. Acesso não autorizado." });
   }
+
+  const token = authHeader.split(" ")[1];
 
   try {
+    // Verifica e decodifica o token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded; // decoded terá { id, name, email, iat, exp }
+    req.user = decoded;
+
+    logger.logInfo(`🟢 Token válido para o usuário ID: ${decoded.id}`);
     next();
   } catch (error) {
-    logger.logError(`Token inválido: ${error.message}`);
-    return res.status(403).json({ error: 'Token inválido.' });
+    logger.logError(`Token inválido ou expirado: ${error.message}`);
+    return res.status(401).json({ error: "Token inválido ou expirado." });
   }
 }
-
-module.exports = verifyToken;
-

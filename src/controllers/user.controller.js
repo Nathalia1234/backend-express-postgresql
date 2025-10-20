@@ -1,21 +1,22 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/user.model');
-const logger = require('../middlewares/logger');
+import jwt from "jsonwebtoken";
+import User from "../models/user.model.js";
+import { logger } from "../middlewares/logger.js";
 
-// Função auxiliar para gerar o token JWT
+// -----------------------------
+// Função auxiliar para gerar token JWT
+// -----------------------------
 function generateToken(user) {
   return jwt.sign(
     { id: user._id, email: user.email },
     process.env.JWT_SECRET,
-    { expiresIn: '1d' }
+    { expiresIn: "1d" }
   );
 }
 
-module.exports = {
   // -----------------------------
   // REGISTRO DE USUÁRIO
   // -----------------------------
-  register: async function (req, res) {
+  export async function register (req, res) {
     try {
       const { name, email, password } = req.body;
 
@@ -39,12 +40,12 @@ module.exports = {
       logger.logError(`Erro no registro de usuário: ${error.message}`);
       return res.status(500).json({ error: 'Erro ao cadastrar usuário' });
     }
-  },
+  }
 
   // -----------------------------
   // LOGIN DE USUÁRIO
   // -----------------------------
-  login: async function (req, res) {
+  export async function login (req, res) {
     try {
       const { email, password } = req.body;
 
@@ -77,12 +78,12 @@ module.exports = {
       logger.logError(`Erro no login: ${error.message}`);
       return res.status(500).json({ error: 'Erro ao fazer login' });
     }
-  },
+  }
 
   // -----------------------------
   // ROTA PROTEGIDA (TESTE)
   // -----------------------------
-  getProfile: async function (req, res) {
+  export async function getProfile (req, res) {
     try {
       const user = await User.findById(req.user.id).select('-password');
       if (!user) {
@@ -96,13 +97,13 @@ module.exports = {
       logger.logError(`Erro ao buscar perfil: ${error.message}`);
       return res.status(500).json({ error: 'Erro ao buscar perfil do usuário' });
     }
-  },
+  }
 
   // -----------------------------
 // LISTAR TODOS OS USUÁRIOS (para testes internos)
 // -----------------------------
 
-  listAll: async function (req, res) {
+  export async function listAll (req, res) {
     try {
       const users = await User.find().select('-password');
       logger.logInfo(`Listagem de usuários retornada (${users.length} encontrados)`);
@@ -112,4 +113,4 @@ module.exports = {
       return res.status(500).json({ error: 'Erro ao listar usuários.' });
     }
   }
-};
+

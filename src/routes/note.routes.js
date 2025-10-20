@@ -1,17 +1,19 @@
-const express = require('express');
-const router = express.Router();
-const verifyToken = require('../middlewares/verifyToken');
-const {
-  createNote,
+import express from "express";
+import { verifyToken } from "../middlewares/verifyToken.js";
+import {
+  create,
   getAllNotes,
   getNoteById,
   updateNote,
   patchNote,
   deleteNote
-} = require('../controllers/note.controller');
+}
+from "../controllers/note.controller.js";
+
+const router = express.Router();
 
 //  Criar nota
-router.post('/', verifyToken, createNote);
+router.post('/', verifyToken, create);
 
 //  Listar todas as notas
 router.get('/', verifyToken, getAllNotes);
@@ -28,4 +30,4 @@ router.patch('/:id', verifyToken, patchNote);
 //  Deletar nota
 router.delete('/:id', verifyToken, deleteNote);
 
-module.exports = router;
+export default router;

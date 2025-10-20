@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Este projeto é a **continuação do Mini-Projeto Fullstack (Parte I)**, evoluindo a aplicação backend para incluir uma **nova funcionalidade completa de CRUD** (Create, Read, Update e Delete) **protegida por autenticação JWT**.  \r A aplicação mantém a mesma estrutura de camadas (controllers, routes, services, models, database e middlewares), garantindo boas práticas e organização do código.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server.js"
