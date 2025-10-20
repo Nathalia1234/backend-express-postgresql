@@ -1,0 +1,1168 @@
+_type: export
+__export_format: 4
+__export_date: 2025-10-20T00:54:02.059Z
+__export_source: insomnia.desktop.app:v2023.5.8
+resources:
+  - _id: req_60f58e17a5cf44d894bce1226754bb05
+    parentId: fld_1997e58c7bf3434d9a39b3fe50d5416e
+    modified: 1760912707670
+    created: 1760830060648
+    url: "{{ _.baseUrl_local }}/api/login"
+    name: "[POST] Login com senha incorreta"
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "email": "nathalia1@email.com",
+          "password": "654321"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_b083ad41668a45628e4ae317ba5c725c
+      - id: pair_27c3496f45dd4e41955dc0a68902be88
+        name: ""
+        value: ""
+        description: ""
+        disabled: true
+      - id: pair_6a65c027088641a180a4ea103eb3e123
+        name: ""
+        value: ""
+        description: ""
+        disabled: true
+    authentication: {}
+    metaSortKey: -1760830060648
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_1997e58c7bf3434d9a39b3fe50d5416e
+    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+    modified: 1760912510287
+    created: 1760826738866
+    name: Erros e Segurança (Local)
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1760826738866
+    _type: request_group
+  - _id: wrk_69a3f0d813904ff884fd8df580759e7e
+    parentId: null
+    modified: 1760826191411
+    created: 1760825079629
+    name: Mini-Projeto Fullstack II — API de Notas (JWT)
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_2bd1e7f6bf0f41bbbf453032f19b0be0
+    parentId: fld_1997e58c7bf3434d9a39b3fe50d5416e
+    modified: 1760912703175
+    created: 1760828776982
+    url: "{{ _.baseUrl_local }}/api/notes"
+    name: "[POST] Criar Nota — Mal Formatado"
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "content": "Faltou o título"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_c6efd6013295418d984c9c41c56ccfd6
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_595eda6c3d4145a8ae38f7e9c71cd85c
+      - id: pair_52d7f9d1309541b3a42d1a8c3ea2b35a
+        name: Authorization
+        value: Bearer {{ _.token_local }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760828776982
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f9be44c040b14ff89e23066db0e5c3ce
+    parentId: fld_1997e58c7bf3434d9a39b3fe50d5416e
+    modified: 1760919732195
+    created: 1760826775290
+    url: "{{ _.baseUrl_local }}/api/notes/{{ _.idDaNota_local }}"
+    name: "[GET] Acessar Nota de Outro Usuário"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_96c0e15e225b41c3b5e34306b3d7457e
+      - id: pair_d83226cfe5ab45c28488c226dc15ba84
+        name: Authorization
+        value: Bearer {{token_local}}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826775290
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e09c01d9819b4bba87dcc5218c17a641
+    parentId: fld_1997e58c7bf3434d9a39b3fe50d5416e
+    modified: 1760912689190
+    created: 1760826761592
+    url: "{{ _.baseUrl_local }}/api/notes"
+    name: "[GET] Listar Notas (Token Inválido)"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_d543e65223c44048a8608eef2fa4f158
+      - id: pair_d26f5548b83d47e8972a9932a6a0e636
+        name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjQyMGMzZDQ5ZDEwMmJmNzhkMzc5NyIsImlhdCI6MTc2MDgyOTY4NSwiZXhwIjoxNzYwODM2ODg1fQ.W7bzXkd4VfZAR0fGQBhUUjZJWkwfA3R3wkIFvBIWYZE8899
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826761592
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6d7050bc769d4033b335909f07cc18ce
+    parentId: fld_1997e58c7bf3434d9a39b3fe50d5416e
+    modified: 1760912684994
+    created: 1760826748919
+    url: "{{ _.baseUrl_local }}/api/notes"
+    name: "[GET] Listar Notas (Sem Token)"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1760826748919
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_274246cc5cf5443586aa2479dfdd2715
+    parentId: fld_283e14ff1a9446afa98fd52de942d115
+    modified: 1760912549327
+    created: 1760912549327
+    url: "{{ _.baseUrl_producao }}/api/login"
+    name: "[POST] Login com senha incorreta"
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "email": "nathalia1@email.com",
+          "password": "654321"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_b083ad41668a45628e4ae317ba5c725c
+      - id: pair_27c3496f45dd4e41955dc0a68902be88
+        name: ""
+        value: ""
+        description: ""
+        disabled: true
+      - id: pair_6a65c027088641a180a4ea103eb3e123
+        name: ""
+        value: ""
+        description: ""
+        disabled: true
+    authentication: {}
+    metaSortKey: -1760830060648
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_283e14ff1a9446afa98fd52de942d115
+    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+    modified: 1760912549292
+    created: 1760912549292
+    name: Erros e Segurança (Produção)
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1760826474463
+    _type: request_group
+  - _id: req_ba00b2fac60f44f0a5745b997d9ffdee
+    parentId: fld_283e14ff1a9446afa98fd52de942d115
+    modified: 1760918734415
+    created: 1760912549318
+    url: "{{ _.baseUrl_producao }}/api/notes"
+    name: "[POST] Criar Nota — Mal Formatado"
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "content": "Faltou o título"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_c6efd6013295418d984c9c41c56ccfd6
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_595eda6c3d4145a8ae38f7e9c71cd85c
+      - id: pair_52d7f9d1309541b3a42d1a8c3ea2b35a
+        name: Authorization
+        value: Bearer {{ _.token_producao }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760828776982
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e16919b0039c445e89c8960b07910b19
+    parentId: fld_283e14ff1a9446afa98fd52de942d115
+    modified: 1760919913096
+    created: 1760912549312
+    url: "{{ _.baseUrl_producao }}/api/notes/{{ _.idDaNota_producao }}"
+    name: "[GET] Acessar Nota de Outro Usuário"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_96c0e15e225b41c3b5e34306b3d7457e
+      - id: pair_d83226cfe5ab45c28488c226dc15ba84
+        name: Authorization
+        value: Bearer {{ _.token_producao }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826775290
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d6c62267129043ae9668348992593d36
+    parentId: fld_283e14ff1a9446afa98fd52de942d115
+    modified: 1760912549306
+    created: 1760912549306
+    url: "{{ _.baseUrl_producao }}/api/notes"
+    name: "[GET] Listar Notas (Token Inválido)"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_d543e65223c44048a8608eef2fa4f158
+      - id: pair_d26f5548b83d47e8972a9932a6a0e636
+        name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjQyMGMzZDQ5ZDEwMmJmNzhkMzc5NyIsImlhdCI6MTc2MDgyOTY4NSwiZXhwIjoxNzYwODM2ODg1fQ.W7bzXkd4VfZAR0fGQBhUUjZJWkwfA3R3wkIFvBIWYZE8899
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826761592
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f53af892d0bf440c9ca33d52e0dea576
+    parentId: fld_283e14ff1a9446afa98fd52de942d115
+    modified: 1760912549297
+    created: 1760912549297
+    url: "{{ _.baseUrl_producao }}/api/notes"
+    name: "[GET] Listar Notas (Sem Token)"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1760826748919
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8211e24df8264fc699d2219f9a0301f5
+    parentId: fld_ad3b0709d3a24165be25c113067f689c
+    modified: 1760912669873
+    created: 1760896421079
+    url: "{{ _.baseUrl_local }}/api/notes?title={{ _.title_local }}"
+    name: "[GET] Filtrar Notas por Título"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_91bbb66e376a4da99cbd6ef39387a357
+      - id: pair_33644225f8504534a772f869e3f9b0ed
+        name: Authorization
+        value: Bearer {{ _.token_local }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760896421079
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_ad3b0709d3a24165be25c113067f689c
+    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+    modified: 1760912497874
+    created: 1760826210060
+    name: Notas (Local)
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1760826210060
+    _type: request_group
+  - _id: req_b716e65572194f2198e64a14b32b8fd9
+    parentId: fld_ad3b0709d3a24165be25c113067f689c
+    modified: 1760912660859
+    created: 1760826675897
+    url: "{{ _.baseUrl_local }}/api/notes/{{ _.idDaNota_local }}"
+    name: "[DELETE] Deletar Nota"
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_20638a6841cf4d949b6b992ba710f631
+      - id: pair_2ca552fad3f44c2d8d1821af68cbab82
+        name: Authorization
+        value: Bearer {{token_local}}
+        description: ""
+      - id: pair_ea15f29d41cf4e8b843ac0ed1172c4af
+        name: Content-Type
+        value: application/json
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826675897
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_1f546c2cbf4f42b58179fc8e863208dd
+    parentId: fld_ad3b0709d3a24165be25c113067f689c
+    modified: 1760912648332
+    created: 1760826616415
+    url: "{{ _.baseUrl_local }}/api/notes/{{ _.idDaNota_local }}"
+    name: "[PATCH] Atualizar Nota (Parcial)"
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "content": "Agora com novo parágrafo adicionado."
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_f5bca51eeb5e4f2b852abbb4666178b5
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_414d00b5659845ca9a034a4a18ebda13
+      - id: pair_d7cb287486ff47caa949d46ebc2578c5
+        name: Authorization
+        value: Bearer {{token_local}}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826616415
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_bfaeec543fdc4a2184ddb2ee130c46d7
+    parentId: fld_ad3b0709d3a24165be25c113067f689c
+    modified: 1760912635867
+    created: 1760826558977
+    url: "{{ _.baseUrl_local }}/api/notes/{{ _.idDaNota_local }}"
+    name: "[PUT] Atualizar Nota (Total)"
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "title": "Prova AV2 de Desenvolvimento Full Stack",
+          "content": "Nota Atualizada."
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_c064aa22689e4d72ace44c1b2bfc640d
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_c6eebd77e08b4dfb8dbf499069ede1f6
+      - id: pair_ac6bc2e6eb6a44a0ac8b8c1e3be4cd7b
+        name: Authorization
+        value: Bearer {{ _.token_local }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826558977
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_256103e1382f4efcb706d0921486a9ba
+    parentId: fld_ad3b0709d3a24165be25c113067f689c
+    modified: 1760912625881
+    created: 1760826497139
+    url: "{{ _.baseUrl_local }}/api/notes/{{ _.idDaNota_local }}"
+    name: "[GET] Buscar Nota por ID"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_f2eb47b73bcb46e386f3ae43246a5680
+      - id: pair_07d344368d174bc48ae116aa656a0b76
+        name: Authorization
+        value: Bearer {{ _.token_local }}
+        description: ""
+      - id: pair_7d80650eb47142829527dad74b4983e1
+        name: Content-Type
+        value: application/json
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826497139
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_0fba0b29677c409b92c4e80282d837fb
+    parentId: fld_ad3b0709d3a24165be25c113067f689c
+    modified: 1760912615388
+    created: 1760826435696
+    url: "{{ _.baseUrl_local }}/api/notes"
+    name: "[GET] Listar Todas as Notas"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_86966469d80c435ea3b681d55e333dbf
+      - id: pair_6dc43b67f057434b8bb89786012737e0
+        name: Content-Type
+        value: application/json
+        description: ""
+      - id: pair_33159d6573c945ceaf1414769f38c3c4
+        name: Authorization
+        value: Bearer {{ _.token_local }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826435696
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_280224ea79a24cd28bb0b5382e2b47dc
+    parentId: fld_ad3b0709d3a24165be25c113067f689c
+    modified: 1760918200139
+    created: 1760826344502
+    url: "{{ _.baseUrl_local }}/api/notes"
+    name: "[POST] Criar Nota"
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |+
+        {
+          "title": "Prova AV2 de Desenvolvimento Full Stack",
+          "content": "A prova irá ocorrer no dia 31 de outubro às 07h da manhã"
+        }
+
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_aaff0b2663f242098e96124968ebdb6c
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_a633e0494bc047d89b6603870cf62585
+      - id: pair_5fa1f378dc6b489f88e17eecd12061dc
+        name: Authorization
+        value: Bearer {{token_local}}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826344502
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d36c57c43b884dbdaf51ceb503a0756c
+    parentId: fld_fa3ab0229d05492780c9157238be3f4d
+    modified: 1760913306749
+    created: 1760912542041
+    url: "{{ _.baseUrl_producao }}/api/notes?title={{ _.title_producao }}"
+    name: "[GET] Filtrar Notas por Título"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_91bbb66e376a4da99cbd6ef39387a357
+      - id: pair_33644225f8504534a772f869e3f9b0ed
+        name: Authorization
+        value: Bearer {{ _.token_producao }}
+        description: ""
+      - id: pair_f9c51c4205e84430aa53409324d1b616
+        name: ""
+        value: ""
+        description: ""
+    authentication: {}
+    metaSortKey: -1760896421079
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_fa3ab0229d05492780c9157238be3f4d
+    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+    modified: 1760912541998
+    created: 1760912541998
+    name: Notas (Produção)
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1760826206611
+    _type: request_group
+  - _id: req_5717a54a303f4fceaa17db9f28f3b04e
+    parentId: fld_fa3ab0229d05492780c9157238be3f4d
+    modified: 1760913266096
+    created: 1760912542036
+    url: "{{ _.baseUrl_producao }}/api/notes/{{ _.idDaNota_producao }}"
+    name: "[DELETE] Deletar Nota"
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_20638a6841cf4d949b6b992ba710f631
+      - id: pair_2ca552fad3f44c2d8d1821af68cbab82
+        name: Authorization
+        value: Bearer {{ _.token_producao }}
+        description: ""
+      - id: pair_ea15f29d41cf4e8b843ac0ed1172c4af
+        name: Content-Type
+        value: application/json
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826675897
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f8ffc3bdb0ac4c94a01ce06814c8c858
+    parentId: fld_fa3ab0229d05492780c9157238be3f4d
+    modified: 1760913228381
+    created: 1760912542031
+    url: "{{ _.baseUrl_producao }}/api/notes/{{ _.idDaNota_producao }}"
+    name: "[PATCH] Atualizar Nota (Parcial)"
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "content": "Agora com novo parágrafo adicionado."
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_f5bca51eeb5e4f2b852abbb4666178b5
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_414d00b5659845ca9a034a4a18ebda13
+      - id: pair_d7cb287486ff47caa949d46ebc2578c5
+        name: Authorization
+        value: Bearer {{ _.token_producao }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826616415
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_a07db9a27c86432fa29018b11ee236bb
+    parentId: fld_fa3ab0229d05492780c9157238be3f4d
+    modified: 1760913193629
+    created: 1760912542020
+    url: "{{ _.baseUrl_producao }}/api/notes/{{ _.idDaNota_producao }}"
+    name: "[PUT] Atualizar Nota (Total)"
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "title": "Prova AV2 de Desenvolvimento Full Stack",
+          "content": "Nota Atualizada."
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_c064aa22689e4d72ace44c1b2bfc640d
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_c6eebd77e08b4dfb8dbf499069ede1f6
+      - id: pair_ac6bc2e6eb6a44a0ac8b8c1e3be4cd7b
+        name: Authorization
+        value: Bearer {{ _.token_producao }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826558977
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_3dacdbce3e9f4195828d2d972e61fa9a
+    parentId: fld_fa3ab0229d05492780c9157238be3f4d
+    modified: 1760913154739
+    created: 1760912542015
+    url: "{{ _.baseUrl_producao }}/api/notes/{{ _.idDaNota_producao }}"
+    name: "[GET] Buscar Nota por ID"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_f2eb47b73bcb46e386f3ae43246a5680
+      - id: pair_07d344368d174bc48ae116aa656a0b76
+        name: Authorization
+        value: Bearer {{ _.token_producao }}
+        description: ""
+      - id: pair_7d80650eb47142829527dad74b4983e1
+        name: Content-Type
+        value: application/json
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826497139
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_760cf1e270f242edb0816b6b062becea
+    parentId: fld_fa3ab0229d05492780c9157238be3f4d
+    modified: 1760913093526
+    created: 1760912542009
+    url: "{{ _.baseUrl_producao }}/api/notes"
+    name: "[GET] Listar Todas as Notas"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_86966469d80c435ea3b681d55e333dbf
+      - id: pair_6dc43b67f057434b8bb89786012737e0
+        name: Content-Type
+        value: application/json
+        description: ""
+      - id: pair_33159d6573c945ceaf1414769f38c3c4
+        name: Authorization
+        value: Bearer {{ _.token_producao }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826435696
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9a0d61b548244b43bec2ad605db44ee1
+    parentId: fld_fa3ab0229d05492780c9157238be3f4d
+    modified: 1760918152859
+    created: 1760912542003
+    url: "{{ _.baseUrl_producao }}/api/notes"
+    name: "[POST] Criar Nota"
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |+
+        {
+          "title": "Estudo: Segunda nota",
+          "content": "Essa é minha segunda anotação pessoal."
+        }
+
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_aaff0b2663f242098e96124968ebdb6c
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_a633e0494bc047d89b6603870cf62585
+      - id: pair_5fa1f378dc6b489f88e17eecd12061dc
+        name: Authorization
+        value: Bearer {{ _.token_producao }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760826344502
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_5507dca5fedb4f98bd2961e8ef39ef63
+    parentId: fld_a62939bee51643a192a4723c06c6b5eb
+    modified: 1760912593123
+    created: 1760895239414
+    url: "{{ _.baseUrl_local }}/api/users"
+    name: "[GET] Listar Todos os Usuários"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1760895239414
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_a62939bee51643a192a4723c06c6b5eb
+    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+    modified: 1760912490387
+    created: 1760826203162
+    name: Usuário (Local)
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1760826203162
+    _type: request_group
+  - _id: req_3c1026cedb234a87b4a6f35487205749
+    parentId: fld_a62939bee51643a192a4723c06c6b5eb
+    modified: 1760912588820
+    created: 1760898443337
+    url: "{{ _.baseUrl_local }}/api/profile"
+    name: GET] Perfil do Usuário (Rota Protegida)
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_6f51bd6142324ba385e24bffdc9e2e52
+      - id: pair_46b47747c8f8489e8d0d7c32b25523c6
+        name: Authorization
+        value: Bearer {{ _.token_local }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760860767582.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_65cad40150954deeb225b85ce21d34bc
+    parentId: fld_a62939bee51643a192a4723c06c6b5eb
+    modified: 1760918819094
+    created: 1760826295751
+    url: "{{ _.baseUrl_local }}/api/login"
+    name: "[POST] Login do Usuário"
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        { "name": "André Oliveira3", 
+         "email": "andre3@email.com", 
+         "password": "456123" }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1760826295751
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e32edac02cb54ba5be5b70afebf55230
+    parentId: fld_a62939bee51643a192a4723c06c6b5eb
+    modified: 1760917952775
+    created: 1760826223057
+    url: "{{ _.baseUrl_local }}/api/register"
+    name: "[POST] Registrar Usuário"
+    description: |-
+      {
+        "name": "Nathalia Ohana2",
+        "email": "nathalia2@email.com",
+        "password": "654987"
+      }
+    method: POST
+    body:
+      mimeType: application/json
+      text: |+
+        { "name": "André Oliveira3", 
+         "email": "andre3@email.com", 
+         "password": "456123" }
+
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1760826223057
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_45f1cd57a68f443386dfd7da29150f8f
+    parentId: fld_dad0c674a43d4b9e81fd4a4b2e1a2cd3
+    modified: 1760912529074
+    created: 1760912529074
+    url: "{{ _.baseUrl_producao }}/api/users"
+    name: "[GET] Listar Todos os Usuários"
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1760895239414
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_dad0c674a43d4b9e81fd4a4b2e1a2cd3
+    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+    modified: 1760912529055
+    created: 1760912529055
+    name: Usuário (Produção)
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1760826203112
+    _type: request_group
+  - _id: req_6f76ecc9952c433c8fe3f8a73a4ef8ff
+    parentId: fld_dad0c674a43d4b9e81fd4a4b2e1a2cd3
+    modified: 1760912962638
+    created: 1760912529080
+    url: "{{ _.baseUrl_producao }}/api/profile"
+    name: GET] Perfil do Usuário (Rota Protegida)
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+        id: pair_6f51bd6142324ba385e24bffdc9e2e52
+      - id: pair_46b47747c8f8489e8d0d7c32b25523c6
+        name: Authorization
+        value: Bearer {{ _.token_producao }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1760860767582.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b26eafb6d85d4d96b46c7c343e145615
+    parentId: fld_dad0c674a43d4b9e81fd4a4b2e1a2cd3
+    modified: 1760919980450
+    created: 1760912529066
+    url: "{{ _.baseUrl_producao }}/api/login"
+    name: "[POST] Login do Usuário"
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        { "name": "Maria Souza2", 
+         "email": "maria2@email.com", 
+         "password": "654987" }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1760826295751
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_bce28488e4e24de68e83257cb816e586
+    parentId: fld_dad0c674a43d4b9e81fd4a4b2e1a2cd3
+    modified: 1760917912849
+    created: 1760912529058
+    url: "{{ _.baseUrl_producao }}/api/register"
+    name: "[POST] Registrar Usuário"
+    description: |-
+      {
+        "name": "Nathalia Ohana2",
+        "email": "nathalia2@email.com",
+        "password": "654987"
+      }
+    method: POST
+    body:
+      mimeType: application/json
+      text: |+
+        { "name": "Maria Souza2", 
+         "email": "maria2@email.com", 
+         "password": "654987" }
+
+
+
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1760826223057
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_77476824a8c24b795c5a643eb76e4bb1c7d5fc2c
+    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+    modified: 1760826985831
+    created: 1760825079638
+    name: Base Environment
+    data:
+      token: ""
+      idDaNota: ""
+      idDeOutroUsuario: ""
+    dataPropertyOrder:
+      "&":
+        - token
+        - idDaNota
+        - idDeOutroUsuario
+    color: null
+    isPrivate: false
+    metaSortKey: 1760825079638
+    _type: environment
+  - _id: jar_77476824a8c24b795c5a643eb76e4bb1c7d5fc2c
+    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+    modified: 1760825079644
+    created: 1760825079644
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: env_f6f6b574ad344b73ae6a75c02842bc10
+    parentId: env_77476824a8c24b795c5a643eb76e4bb1c7d5fc2c
+    modified: 1760919625116
+    created: 1760827102125
+    name: Ambiente Local
+    data:
+      baseUrl_local: http://localhost:3000
+      token_local: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjU3OWMyZDgxZWFjOTQ2NmVmYjVjNyIsImVtYWlsIjoiYW5kcmUzQGVtYWlsLmNvbSIsImlhdCI6MTc2MDkxODgyMSwiZXhwIjoxNzYxMDA1MjIxfQ.gPnYXECU2f-E6EGYzkwXi0rI961L4lIip2qQDgFvo4E
+      idDaNota_local: 68f57a6dd81eac9466efb5ce
+      idDeOutroUsuario_local: 68f5799e903fcdeed94fbb37
+      title_local: Estudo
+    dataPropertyOrder:
+      "&":
+        - baseUrl_local
+        - token_local
+        - idDaNota_local
+        - idDeOutroUsuario_local
+        - title_local
+    color: "#d20f0f"
+    isPrivate: false
+    metaSortKey: 1760827102125
+    _type: environment
+  - _id: env_4becebcd2cbe4b6086352351867e6e0c
+    parentId: env_77476824a8c24b795c5a643eb76e4bb1c7d5fc2c
+    modified: 1760920078509
+    created: 1760827117507
+    name: Ambiente Produção
+    data:
+      baseUrl_producao: https://mini-projeto-fullstack-parte2.vercel.app
+      token_producao: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjU3OTllOTAzZmNkZWVkOTRmYmIzNyIsImVtYWlsIjoibWFyaWEyQGVtYWlsLmNvbSIsImlhdCI6MTc2MDkxOTk4MiwiZXhwIjoxNzYxMDA2MzgyfQ.tH6OCszdRH-GkPWkhzyU3Y0oVKqHc3eDSOj-5BqUemQ
+      idDaNota_producao: 68f57a8aaac4064822bfbdb4
+      idDeOutroUsuario_producao: ""
+      title_producao: Estudo
+    dataPropertyOrder:
+      "&":
+        - baseUrl_producao
+        - token_producao
+        - idDaNota_producao
+        - idDeOutroUsuario_producao
+        - title_producao
+    color: "#7d69cb"
+    isPrivate: false
+    metaSortKey: 1760827117507
+    _type: environment

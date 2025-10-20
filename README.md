@@ -31,7 +31,7 @@ Todas as operações CRUD são protegidas e vinculadas ao **usuário autenticado
 
 ## 🟣 Estrutura de Pastas
 
-![alt text](image-1.png)
+![alt text](./src/img/image-1.png)
 
 ---
 
