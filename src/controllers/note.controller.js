@@ -108,7 +108,7 @@ export  async function updateNote(req, res) {
 
     if (note.userId.toString() !== req.user.id) {
       logger.logWarn(`Usuário ${req.user.id} tentou atualizar nota de outro usuário`);
-      return res.status(403).json({ error: 'Acesso negado. Esta nota pertence a outro usuário.' });
+      return res.status(403).json({ error: 'Acesso negado. Você não pode editar notas de outro usuário.' });
     }
 
     note.title = req.body.title || note.title;
@@ -135,7 +135,7 @@ export  async function patchNote(req, res) {
 
     if (note.userId.toString() !== req.user.id) {
       logger.logWarn(`Usuário ${req.user.id} tentou modificar nota de outro usuário`);
-      return res.status(403).json({ error: 'Acesso negado. Esta nota pertence a outro usuário.' });
+      return res.status(403).json({ error: 'Acesso negado. Você não pode editar notas de outro usuário.' });
     }
 
     Object.assign(note, req.body);
@@ -163,7 +163,7 @@ export  async function deleteNote(req, res) {
 
     if (note.userId.toString() !== req.user.id) {
       logger.logWarn(`Usuário ${req.user.id} tentou deletar nota de outro usuário`);
-      return res.status(403).json({ error: 'Acesso negado. Esta nota pertence a outro usuário.' });
+      return res.status(403).json({ error: 'Acesso negado. Você não pode deletar notas de outro usuário.' });
     }
 
     await note.deleteOne();
