@@ -83,7 +83,7 @@ JWT_SECRET=token_secreto
 
 Foram criados dois ambientes no Insomnia:
 - **Local:** `http://localhost:3000`
-- **Produção:** [Projeto em Produção](https://mini-projeto-fullstack-parte2.vercel.app/)
+- **Produção:** `https://mini-projeto-fullstack-parte2.vercel.app/`
 
 Em ambos:
 
@@ -100,9 +100,9 @@ A pasta `requests/` contém todas as requisições (local e produção).
 
 ## 🟣 Hospedagem e Acesso
 
-Backend em Produção: [Projeto em Produção](https://mini-projeto-fullstack-parte2.vercel.app/)
+Backend em Produção: `https://mini-projeto-fullstack-parte2.vercel.app/`
 
-Base URL Local: http://localhost:3000
+Base URL Local: `http://localhost:3000`
 
 --- 
 
@@ -114,9 +114,9 @@ Base URL Local: http://localhost:3000
   - `JWT_SECRET`
   - `PORT=3000` (opcional)
 
-- Após o deploy, o backend será acessível no vercel: https://mini-projeto-fullstack-parte2.vercel.app/
+- Após o deploy, o backend será acessível no vercel: `https://mini-projeto-fullstack-parte2.vercel.app/`
 
-- O backend está acessível também em meu domínio pessoal: https://notes.nathaliaohana.dev/ 
+- O backend está acessível também em meu domínio pessoal: `https://notes.nathaliaohana.dev/`
 
 ---
 
