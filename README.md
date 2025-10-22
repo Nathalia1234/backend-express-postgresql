@@ -113,8 +113,10 @@ Base URL Local: http://localhost:3000
   - `MONGO_URI`
   - `JWT_SECRET`
   - `PORT=3000` (opcional)
-- Após o deploy, o backend será acessível em: [Projeto em Produção](https://mini-projeto-fullstack-parte2.vercel.app/)
-- O projeto está acessível também em meu domínio pessoa: https://notes.nathaliaohana.dev/ 
+
+- Após o deploy, o backend será acessível no vercel: https://mini-projeto-fullstack-parte2.vercel.app/
+
+- O backend está acessível também em meu domínio pessoal: https://notes.nathaliaohana.dev/ 
 
 ---
 
