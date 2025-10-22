@@ -130,6 +130,7 @@ Um vídeo curto (até 2 minutos) foi gravado demonstrando:
 
 - Rotas CRUD protegidas com JWT.
 
-🔗 [Clique aqui para assistir ao vídeo de demonstração]()
+
+🔗 [Assista ao vídeo de demonstração]()
 
 ---
