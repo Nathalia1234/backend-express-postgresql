@@ -39,7 +39,7 @@ Todas as operações CRUD são protegidas e vinculadas ao **usuário autenticado
 
 - ✅ **Cadastro e Login de usuários** com hash de senha e autenticação JWT  
 - ✅ **CRUD completo** de anotações
-- ✅ **Rotas protegidas por token JWT** (somente o usuário autenticado acessa seus próprios dados)  
+- ✅ **Rotas protegidas por token JWT** (somente o usuário autenticado acessa suas próprias anotações)  
 - ✅ **Tratamento de erros e respostas HTTP apropriadas**  
 - ✅ **Logs de ações e erros no terminal**  
 - ✅ **Utilização de variáveis de ambiente com dotenv**  
@@ -60,7 +60,7 @@ Todas as operações CRUD são protegidas e vinculadas ao **usuário autenticado
 | Método | Rota | Descrição | Autenticação |
 |:--:|:--|:--|:--:|
 | **POST** | `/api/notes` | Cria uma nova nota | ✅ |
-| **GET** | `/api/notes` | Lista todas as notas do usuário | ✅ |
+| **GET** | `/api/notes` | Lista todas as notas do usuário autenticado | ✅ |
 | **GET** | `/api/notes?title=...` | Filtra notas por título | ✅ |
 | **GET** | `/api/notes/:id` | Retorna uma nota específica | ✅ |
 | **PUT** | `/api/notes/:id` | Atualiza todos os dados de uma nota | ✅ |
@@ -81,9 +81,9 @@ JWT_SECRET=token_secreto
 
 ## 🟣 Testes de Requisição (Insomnia)
 
-Foram criados dois ambientes:
+Foram criados dois ambientes no Insomnia:
 - **Local:** `http://localhost:3000`
-- **Produção:** (será adicionado após deploy no Vercel)
+- **Produção:** [Projeto em Produção](https://mini-projeto-fullstack-parte2.vercel.app/)
 
 Em ambos:
 
@@ -114,6 +114,7 @@ Base URL Local: http://localhost:3000
   - `JWT_SECRET`
   - `PORT=3000` (opcional)
 - Após o deploy, o backend será acessível em: [Projeto em Produção](https://mini-projeto-fullstack-parte2.vercel.app/)
+- O projeto está acessível também em meu domínio pessoa: https://notes.nathaliaohana.dev/ 
 
 ---
 
