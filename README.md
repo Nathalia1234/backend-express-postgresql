@@ -1,4 +1,4 @@
-# Mini-Projeto Fullstack - Parte II  
+# Mini-Projeto Fullstack - Parte II  (Utilizando MongoDB)
 
 ## 🟣 CRUD de Notas Autenticado com JWT
 
@@ -131,6 +131,6 @@ Um vídeo curto (até 2 minutos) foi gravado demonstrando:
 - Rotas CRUD protegidas com JWT.
 
 
-🔗 [Assista ao vídeo de demonstração]()
+🔗 [Assista ao vídeo de demonstração](https://drive.google.com/file/d/1cppMxoF5ssPuWUsoh2chLur9WgIsU78k/view?usp=sharing)
 
 ---
