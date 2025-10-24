@@ -126,7 +126,9 @@ Um vídeo um pouco longo (até 6 minutos) foi gravado demonstrando:
 
 - Execução das requisições no Insomnia (localmente e em produção);
 
-- Visualização dos dados cadastrados no MongoDB Atlas (localmente e em produção);
+- Exibição dos logs (localmente e em produção);
+
+- Visualização dos dados cadastrados no MongoDB Atlas;
 
 - Rotas CRUD protegidas com JWT.
 
