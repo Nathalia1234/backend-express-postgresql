@@ -122,7 +122,7 @@ Backend em Produção no meu domínio pessoal: https://notes.nathaliaohana.dev/
 
 ## 🟣 Vídeo de Demonstração
 
-Um vídeo curto (até 2 minutos) foi gravado demonstrando:
+Um vídeo um pouco longo (até 6 minutos) foi gravado demonstrando:
 
 - Execução das requisições no Insomnia (localmente e em produção);
 
