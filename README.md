@@ -11,17 +11,20 @@ Todo o CRUD de usuários e notas foi mantido, assim como os logs, tratamento de 
 
 ---
 
-## 🟣 Tecnologias Utilizadas
+## 🟣 Ferramentas e serviços utilizados durante o desenvolvimento e testes:
 
-| Categoria | Tecnologias |
-|------------|--------------|
-| **Backend** | Node.js, Express.js |
-| **Banco de Dados** | PostgreSQL |
-| **Autenticação** | JSON Web Token (JWT) |
-| **Ambiente** | dotenv, nodemon |
-| **Driver de Conexão** | pg (Node-Postgres) |
-| **Testes de API** | Insomnia |
-| **Hospedagem** | Vercel |
+| Ferramenta               | Finalidade                             |
+| ------------------------ | -------------------------------------- |
+| **Node.js / Express.js** | Criação do servidor e rotas da API     |
+| **PostgreSQL**           | Banco de dados relacional              |
+| **Neon.tech**            | Hospedagem do banco em nuvem           |
+| **pgAdmin 4**            | Gerenciamento local do PostgreSQL      |
+| **Vercel**               | Deploy e logs de execução              |
+| **Insomnia**             | Testes das rotas HTTP                  |
+| **bcryptjs**             | Criptografia de senhas                 |
+| **jsonwebtoken**         | Autenticação via JWT                   |
+| **dotenv**               | Gerenciamento de variáveis de ambiente |
+
 
 ---
 
@@ -30,6 +33,150 @@ Todo o CRUD de usuários e notas foi mantido, assim como os logs, tratamento de 
 ![alt text](src/img/image-1.png)
 
 ---
+## 🟣 Como Executar Localmente
+
+1. **Clone o repositório**
+```bash
+   git clone https://github.com/Nathalia1234/backend-express-postgresql
+```
+
+2. **Acesse o diretório do projeto**
+```bash
+cd backend-express-postgresql
+```
+
+3. **Instale as dependências**
+```bash
+npm install
+```
+
+4. **Configure o arquivo .env**
+```bash
+DATABASE_URL= url do banco
+JWT_SECRET=chave_jwt
+PORT=3000
+```
+
+5. **Inicie o servidor**
+```bash
+npm start
+```
+
+6. **Acesse a API**
+```bash
+http://localhost:3000
+```
+
+---
+
+## 🟣 Testes Locais
+
+Durante o desenvolvimento, o backend foi testado localmente utilizando o Insomnia e o PostgreSQL local.
+
+O objetivo foi garantir o funcionamento completo da API antes do deploy em produção.
+
+
+**Configuração local:**
+
+- Base URL: http://localhost:3000
+- Banco de dados: PostgreSQL (local)
+- Ferramentas utilizadas: 
+    -  Node.js + Express
+    - pgAdmin 4
+    - Insomnia
+
+---
+## 🟣 Funcionalidades testadas localmente
+
+- Conexão com banco local via **pg.Pool**
+
+- Registro e autenticação de usuários
+
+- Criação, listagem, edição e exclusão de notas
+
+- Geração e validação de tokens JWT
+
+-  Proteção de rotas autenticadas
+
+- Mensagens de erro e logs no terminal via Vs Code
+
+- Estrutura MVC implementada corretamente
+
+---
+## 🟣 Dados registrados no banco local 
+
+🔹Tabela de **users** e **notes**:
+
+![alt text](./src/img/image-8.png)
+
+![alt text](./src/img/image-9.png)
+
+
+
+---
+## 🟣 Exemplo de requisições locais
+
+🔹 Registro de usuário:
+
+![alt text](./src/img/image-11.png)
+
+🔹 Login de usuário:
+
+![alt text](./src/img/image-3.png)
+
+🔹 Criação de nota:
+
+![alt text](./src/img/image-4.png)
+
+🔹 Acesso de nota de outro usuário:
+
+![alt text](./src/img/image-5.png)
+
+> Os testes locais confirmaram o correto funcionamento da API antes da migração para o banco remoto Neon.tech e deploy na Vercel.
+---
+## 🟣 Testes em Produção
+
+Após o deploy, os testes foram refeitos com o ambiente de produção:  https://backend-express-postgresql-flame.vercel.app/
+
+Banco de dados remoto: **Neon.tech**
+
+Ambiente de hospedagem: **Vercel**
+
+---
+## 🟣Funcionalidades testadas em produção
+
+- Registro e login de usuários (Nathalia e Maria)
+
+- Criação, listagem, atualização e exclusão de notas
+
+- Associação correta entre user_id e notas
+
+- Bloqueio de acesso entre usuários diferentes
+
+- Validação de tokens JWT (inválido, expirado, ausente)
+
+- Logs de segurança ativos no painel da Vercel
+
+- Persistência dos dados confirmada no Neon.tech
+
+---
+## 🟣 Dados registrados no banco remoto
+
+Tabela **users**:
+![alt text](./src/img/image-6.png)
+
+
+Tabela **notes**:
+![alt text](./src/img/image-7.png)
+
+> A API apresentou o mesmo comportamento do ambiente local, com dados sendo armazenados e consultados com sucesso no banco remoto.
+--- 
+## 🟣 Logs registrados no Vercel
+
+![alt text](./src/img/image-10.png)
+
+
+--- 
 
 ## 🟣 Funcionalidades Implementadas
 
@@ -91,40 +238,6 @@ Obs.: No ambiente de produção, a variável **DATABASE_URL** foi substituída p
 > O gerenciamento do banco de dados em ambiente local foi realizado com o **pgAdmin 4**, permitindo a criação das tabelas, consultas SQL e acompanhamento das inserções durante os testes.
 
 ---
-## 🟣 Como Executar Localmente
-
-1. **Clone o repositório**
-```bash
-   git clone https://github.com/Nathalia1234/backend-express-postgresql.git
-```
-
-2. **Acesse o diretório do projeto**
-```bash
-cd backend-express-postgresql
-```
-
-3. **Instale as dependências**
-```bash
-npm install
-```
-
-4. **Configure o arquivo .env**
-```bash
-DATABASE_URL= url do banco
-JWT_SECRET=chave_jwt
-PORT=3000
-```
-
-5. **Inicie o servidor**
-```bash
-npm start
-```
-
-6. **Acesse a API**
-```bash
-http://localhost:3000
-```
----
 ## 🟣 Testes de Requisição (Insomnia)
 
 Foram criados dois ambientes no Insomnia:
@@ -146,14 +259,17 @@ A pasta `requests/` contém todas as requisições (local e produção).
 
 ## 🟣 Hospedagem e Acesso
 
-Backend em Produção (Vercel):
+Backend em Produção (Vercel): https://backend-express-postgresql-flame.vercel.app/
 
-Banco de Dados em Produção:  **Neon.tech** (plataforma gratuita de hospedagem PostgreSQL)
+Banco de Dados em Produção:  **Neon.tech** (https://neon.tech)
 
 Base URL Local: http://localhost:3000
 
 Backend em Produção no meu domínio pessoal: 
 
+> A API está hospedada na Vercel e conecta-se a um banco de dados PostgreSQL remoto (Neon.tech).  
+
+> Todas as rotas foram testadas e validadas com sucesso via Insomnia.
 ---
 
 ## 🟣 Deploy (Vercel)

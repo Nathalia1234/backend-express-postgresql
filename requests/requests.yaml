@@ -1,10 +1,10 @@
 _type: export
 __export_format: 4
-__export_date: 2025-10-20T00:54:02.059Z
+__export_date: 2025-10-25T14:48:17.244Z
 __export_source: insomnia.desktop.app:v2023.5.8
 resources:
-  - _id: req_60f58e17a5cf44d894bce1226754bb05
-    parentId: fld_1997e58c7bf3434d9a39b3fe50d5416e
+  - _id: req_0f50ed79bad243448b7f9c79780704c8
+    parentId: fld_f48210678db04140957d58a010dc22c6
     modified: 1760912707670
     created: 1760830060648
     url: "{{ _.baseUrl_local }}/api/login"
@@ -45,8 +45,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_1997e58c7bf3434d9a39b3fe50d5416e
-    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+  - _id: fld_f48210678db04140957d58a010dc22c6
+    parentId: wrk_9e0446091d7542b7a1f30cdc4eca91c6
     modified: 1760912510287
     created: 1760826738866
     name: Erros e Segurança (Local)
@@ -55,16 +55,16 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1760826738866
     _type: request_group
-  - _id: wrk_69a3f0d813904ff884fd8df580759e7e
+  - _id: wrk_9e0446091d7542b7a1f30cdc4eca91c6
     parentId: null
-    modified: 1760826191411
-    created: 1760825079629
-    name: Mini-Projeto Fullstack II — API de Notas (JWT)
+    modified: 1761354336962
+    created: 1761354336962
+    name: Requisições
     description: ""
     scope: collection
     _type: workspace
-  - _id: req_2bd1e7f6bf0f41bbbf453032f19b0be0
-    parentId: fld_1997e58c7bf3434d9a39b3fe50d5416e
+  - _id: req_b40e60faea874344a8ba518dec8f1a33
+    parentId: fld_f48210678db04140957d58a010dc22c6
     modified: 1760912703175
     created: 1760828776982
     url: "{{ _.baseUrl_local }}/api/notes"
@@ -99,8 +99,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_f9be44c040b14ff89e23066db0e5c3ce
-    parentId: fld_1997e58c7bf3434d9a39b3fe50d5416e
+  - _id: req_206a0138d9bb4296ad0ca5c8bdcb233c
+    parentId: fld_f48210678db04140957d58a010dc22c6
     modified: 1760919732195
     created: 1760826775290
     url: "{{ _.baseUrl_local }}/api/notes/{{ _.idDaNota_local }}"
@@ -127,9 +127,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_e09c01d9819b4bba87dcc5218c17a641
-    parentId: fld_1997e58c7bf3434d9a39b3fe50d5416e
-    modified: 1760912689190
+  - _id: req_e75f8f7445ce4a329bc7fe7de8757f87
+    parentId: fld_f48210678db04140957d58a010dc22c6
+    modified: 1761402148366
     created: 1760826761592
     url: "{{ _.baseUrl_local }}/api/notes"
     name: "[GET] Listar Notas (Token Inválido)"
@@ -143,8 +143,7 @@ resources:
         id: pair_d543e65223c44048a8608eef2fa4f158
       - id: pair_d26f5548b83d47e8972a9932a6a0e636
         name: Authorization
-        value: Bearer
-          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjQyMGMzZDQ5ZDEwMmJmNzhkMzc5NyIsImlhdCI6MTc2MDgyOTY4NSwiZXhwIjoxNzYwODM2ODg1fQ.W7bzXkd4VfZAR0fGQBhUUjZJWkwfA3R3wkIFvBIWYZE8899
+        value: Bearer {{ _.token_local_invalido }}
         description: ""
     authentication: {}
     metaSortKey: -1760826761592
@@ -156,8 +155,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_6d7050bc769d4033b335909f07cc18ce
-    parentId: fld_1997e58c7bf3434d9a39b3fe50d5416e
+  - _id: req_3c706a00def2454e980c98d1a8ad79d1
+    parentId: fld_f48210678db04140957d58a010dc22c6
     modified: 1760912684994
     created: 1760826748919
     url: "{{ _.baseUrl_local }}/api/notes"
@@ -179,8 +178,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_274246cc5cf5443586aa2479dfdd2715
-    parentId: fld_283e14ff1a9446afa98fd52de942d115
+  - _id: req_98eb8db0ddd64258b16c23363cff0cfa
+    parentId: fld_3ecaefc8736542d2939a053c0aa03c2f
     modified: 1760912549327
     created: 1760912549327
     url: "{{ _.baseUrl_producao }}/api/login"
@@ -221,8 +220,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_283e14ff1a9446afa98fd52de942d115
-    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+  - _id: fld_3ecaefc8736542d2939a053c0aa03c2f
+    parentId: wrk_9e0446091d7542b7a1f30cdc4eca91c6
     modified: 1760912549292
     created: 1760912549292
     name: Erros e Segurança (Produção)
@@ -231,8 +230,8 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1760826474463
     _type: request_group
-  - _id: req_ba00b2fac60f44f0a5745b997d9ffdee
-    parentId: fld_283e14ff1a9446afa98fd52de942d115
+  - _id: req_add5426656094342960acfaa6530bda7
+    parentId: fld_3ecaefc8736542d2939a053c0aa03c2f
     modified: 1760918734415
     created: 1760912549318
     url: "{{ _.baseUrl_producao }}/api/notes"
@@ -267,8 +266,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_e16919b0039c445e89c8960b07910b19
-    parentId: fld_283e14ff1a9446afa98fd52de942d115
+  - _id: req_902b2ae0e3d14053bf7985f46f4117a2
+    parentId: fld_3ecaefc8736542d2939a053c0aa03c2f
     modified: 1760919913096
     created: 1760912549312
     url: "{{ _.baseUrl_producao }}/api/notes/{{ _.idDaNota_producao }}"
@@ -295,9 +294,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_d6c62267129043ae9668348992593d36
-    parentId: fld_283e14ff1a9446afa98fd52de942d115
-    modified: 1760912549306
+  - _id: req_746bb3874eb84b8cbfafaa8977c0bd61
+    parentId: fld_3ecaefc8736542d2939a053c0aa03c2f
+    modified: 1761401853673
     created: 1760912549306
     url: "{{ _.baseUrl_producao }}/api/notes"
     name: "[GET] Listar Notas (Token Inválido)"
@@ -311,8 +310,7 @@ resources:
         id: pair_d543e65223c44048a8608eef2fa4f158
       - id: pair_d26f5548b83d47e8972a9932a6a0e636
         name: Authorization
-        value: Bearer
-          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjQyMGMzZDQ5ZDEwMmJmNzhkMzc5NyIsImlhdCI6MTc2MDgyOTY4NSwiZXhwIjoxNzYwODM2ODg1fQ.W7bzXkd4VfZAR0fGQBhUUjZJWkwfA3R3wkIFvBIWYZE8899
+        value: Bearer {{ _.token_producao_invalido }}
         description: ""
     authentication: {}
     metaSortKey: -1760826761592
@@ -324,8 +322,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_f53af892d0bf440c9ca33d52e0dea576
-    parentId: fld_283e14ff1a9446afa98fd52de942d115
+  - _id: req_992349d61b5f455d8eca7109ba1b23a2
+    parentId: fld_3ecaefc8736542d2939a053c0aa03c2f
     modified: 1760912549297
     created: 1760912549297
     url: "{{ _.baseUrl_producao }}/api/notes"
@@ -347,8 +345,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_8211e24df8264fc699d2219f9a0301f5
-    parentId: fld_ad3b0709d3a24165be25c113067f689c
+  - _id: req_bc5e1cb20fd14f1590b21ffe1fd1dd2c
+    parentId: fld_d04ee7f2580c4a279f5d6a9ed46fa06d
     modified: 1760912669873
     created: 1760896421079
     url: "{{ _.baseUrl_local }}/api/notes?title={{ _.title_local }}"
@@ -375,8 +373,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_ad3b0709d3a24165be25c113067f689c
-    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+  - _id: fld_d04ee7f2580c4a279f5d6a9ed46fa06d
+    parentId: wrk_9e0446091d7542b7a1f30cdc4eca91c6
     modified: 1760912497874
     created: 1760826210060
     name: Notas (Local)
@@ -385,8 +383,8 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1760826210060
     _type: request_group
-  - _id: req_b716e65572194f2198e64a14b32b8fd9
-    parentId: fld_ad3b0709d3a24165be25c113067f689c
+  - _id: req_5ad0ea9c0f804bf58f09ab35f28aae79
+    parentId: fld_d04ee7f2580c4a279f5d6a9ed46fa06d
     modified: 1760912660859
     created: 1760826675897
     url: "{{ _.baseUrl_local }}/api/notes/{{ _.idDaNota_local }}"
@@ -417,8 +415,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_1f546c2cbf4f42b58179fc8e863208dd
-    parentId: fld_ad3b0709d3a24165be25c113067f689c
+  - _id: req_7a5968e5b438442d9c5ad849fbd527fe
+    parentId: fld_d04ee7f2580c4a279f5d6a9ed46fa06d
     modified: 1760912648332
     created: 1760826616415
     url: "{{ _.baseUrl_local }}/api/notes/{{ _.idDaNota_local }}"
@@ -453,8 +451,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_bfaeec543fdc4a2184ddb2ee130c46d7
-    parentId: fld_ad3b0709d3a24165be25c113067f689c
+  - _id: req_e348f260fbd34168b45ffe7ef120939e
+    parentId: fld_d04ee7f2580c4a279f5d6a9ed46fa06d
     modified: 1760912635867
     created: 1760826558977
     url: "{{ _.baseUrl_local }}/api/notes/{{ _.idDaNota_local }}"
@@ -490,8 +488,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_256103e1382f4efcb706d0921486a9ba
-    parentId: fld_ad3b0709d3a24165be25c113067f689c
+  - _id: req_691b2215936349bb972cf19e561cf430
+    parentId: fld_d04ee7f2580c4a279f5d6a9ed46fa06d
     modified: 1760912625881
     created: 1760826497139
     url: "{{ _.baseUrl_local }}/api/notes/{{ _.idDaNota_local }}"
@@ -522,8 +520,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_0fba0b29677c409b92c4e80282d837fb
-    parentId: fld_ad3b0709d3a24165be25c113067f689c
+  - _id: req_e09f78bde15b4898be5532ab128a268e
+    parentId: fld_d04ee7f2580c4a279f5d6a9ed46fa06d
     modified: 1760912615388
     created: 1760826435696
     url: "{{ _.baseUrl_local }}/api/notes"
@@ -554,9 +552,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_280224ea79a24cd28bb0b5382e2b47dc
-    parentId: fld_ad3b0709d3a24165be25c113067f689c
-    modified: 1760918200139
+  - _id: req_96ec5c8a30bd43818c0c01c4fb753b8d
+    parentId: fld_d04ee7f2580c4a279f5d6a9ed46fa06d
+    modified: 1761357263152
     created: 1760826344502
     url: "{{ _.baseUrl_local }}/api/notes"
     name: "[POST] Criar Nota"
@@ -566,8 +564,8 @@ resources:
       mimeType: application/json
       text: |+
         {
-          "title": "Prova AV2 de Desenvolvimento Full Stack",
-          "content": "A prova irá ocorrer no dia 31 de outubro às 07h da manhã"
+          "title": "Estudo: Primeira nota",
+          "content": "Essa é minha primeira anotação pessoal."
         }
 
     parameters: []
@@ -592,8 +590,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_d36c57c43b884dbdaf51ceb503a0756c
-    parentId: fld_fa3ab0229d05492780c9157238be3f4d
+  - _id: req_8ee4815e442a4deb90310925c2e6f132
+    parentId: fld_b7bc8c2b34f34cf6ba2ed55cc9847fc1
     modified: 1760913306749
     created: 1760912542041
     url: "{{ _.baseUrl_producao }}/api/notes?title={{ _.title_producao }}"
@@ -624,8 +622,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_fa3ab0229d05492780c9157238be3f4d
-    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+  - _id: fld_b7bc8c2b34f34cf6ba2ed55cc9847fc1
+    parentId: wrk_9e0446091d7542b7a1f30cdc4eca91c6
     modified: 1760912541998
     created: 1760912541998
     name: Notas (Produção)
@@ -634,8 +632,8 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1760826206611
     _type: request_group
-  - _id: req_5717a54a303f4fceaa17db9f28f3b04e
-    parentId: fld_fa3ab0229d05492780c9157238be3f4d
+  - _id: req_e928f2aea6344f74ac967a930564ddb5
+    parentId: fld_b7bc8c2b34f34cf6ba2ed55cc9847fc1
     modified: 1760913266096
     created: 1760912542036
     url: "{{ _.baseUrl_producao }}/api/notes/{{ _.idDaNota_producao }}"
@@ -666,8 +664,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_f8ffc3bdb0ac4c94a01ce06814c8c858
-    parentId: fld_fa3ab0229d05492780c9157238be3f4d
+  - _id: req_c301992d70f047e88b1785d0a5e61822
+    parentId: fld_b7bc8c2b34f34cf6ba2ed55cc9847fc1
     modified: 1760913228381
     created: 1760912542031
     url: "{{ _.baseUrl_producao }}/api/notes/{{ _.idDaNota_producao }}"
@@ -702,8 +700,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_a07db9a27c86432fa29018b11ee236bb
-    parentId: fld_fa3ab0229d05492780c9157238be3f4d
+  - _id: req_a920ee46fb8f449db241b3593f278fa6
+    parentId: fld_b7bc8c2b34f34cf6ba2ed55cc9847fc1
     modified: 1760913193629
     created: 1760912542020
     url: "{{ _.baseUrl_producao }}/api/notes/{{ _.idDaNota_producao }}"
@@ -739,8 +737,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_3dacdbce3e9f4195828d2d972e61fa9a
-    parentId: fld_fa3ab0229d05492780c9157238be3f4d
+  - _id: req_6d83fa594b1d4c9ca5573b2d1a88ccd8
+    parentId: fld_b7bc8c2b34f34cf6ba2ed55cc9847fc1
     modified: 1760913154739
     created: 1760912542015
     url: "{{ _.baseUrl_producao }}/api/notes/{{ _.idDaNota_producao }}"
@@ -771,8 +769,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_760cf1e270f242edb0816b6b062becea
-    parentId: fld_fa3ab0229d05492780c9157238be3f4d
+  - _id: req_29074a320d534d05a9a57d95f50d94bb
+    parentId: fld_b7bc8c2b34f34cf6ba2ed55cc9847fc1
     modified: 1760913093526
     created: 1760912542009
     url: "{{ _.baseUrl_producao }}/api/notes"
@@ -803,9 +801,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_9a0d61b548244b43bec2ad605db44ee1
-    parentId: fld_fa3ab0229d05492780c9157238be3f4d
-    modified: 1760918152859
+  - _id: req_aca8546ac3254e81808b86386a423fe5
+    parentId: fld_b7bc8c2b34f34cf6ba2ed55cc9847fc1
+    modified: 1761401771634
     created: 1760912542003
     url: "{{ _.baseUrl_producao }}/api/notes"
     name: "[POST] Criar Nota"
@@ -815,8 +813,8 @@ resources:
       mimeType: application/json
       text: |+
         {
-          "title": "Estudo: Segunda nota",
-          "content": "Essa é minha segunda anotação pessoal."
+          "title": "Seminário de MongoDB",
+          "content": "Esse seminário irá acontecer na quarta-feira"
         }
 
     parameters: []
@@ -841,8 +839,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_5507dca5fedb4f98bd2961e8ef39ef63
-    parentId: fld_a62939bee51643a192a4723c06c6b5eb
+  - _id: req_b325a066e8d741eb9ebbe32308f98edf
+    parentId: fld_66c94f7d5d2f49eb823e1618b5871f52
     modified: 1760912593123
     created: 1760895239414
     url: "{{ _.baseUrl_local }}/api/users"
@@ -864,8 +862,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_a62939bee51643a192a4723c06c6b5eb
-    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+  - _id: fld_66c94f7d5d2f49eb823e1618b5871f52
+    parentId: wrk_9e0446091d7542b7a1f30cdc4eca91c6
     modified: 1760912490387
     created: 1760826203162
     name: Usuário (Local)
@@ -874,8 +872,8 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1760826203162
     _type: request_group
-  - _id: req_3c1026cedb234a87b4a6f35487205749
-    parentId: fld_a62939bee51643a192a4723c06c6b5eb
+  - _id: req_b78dc576842b4a58999b247fdb598b33
+    parentId: fld_66c94f7d5d2f49eb823e1618b5871f52
     modified: 1760912588820
     created: 1760898443337
     url: "{{ _.baseUrl_local }}/api/profile"
@@ -902,9 +900,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_65cad40150954deeb225b85ce21d34bc
-    parentId: fld_a62939bee51643a192a4723c06c6b5eb
-    modified: 1760918819094
+  - _id: req_753730a7442f449a908dd498e2075197
+    parentId: fld_66c94f7d5d2f49eb823e1618b5871f52
+    modified: 1761357585559
     created: 1760826295751
     url: "{{ _.baseUrl_local }}/api/login"
     name: "[POST] Login do Usuário"
@@ -932,9 +930,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_e32edac02cb54ba5be5b70afebf55230
-    parentId: fld_a62939bee51643a192a4723c06c6b5eb
-    modified: 1760917952775
+  - _id: req_e2e129d505804b928de4095020f0bd38
+    parentId: fld_66c94f7d5d2f49eb823e1618b5871f52
+    modified: 1761357422099
     created: 1760826223057
     url: "{{ _.baseUrl_local }}/api/register"
     name: "[POST] Registrar Usuário"
@@ -947,11 +945,10 @@ resources:
     method: POST
     body:
       mimeType: application/json
-      text: |+
+      text: |
         { "name": "André Oliveira3", 
          "email": "andre3@email.com", 
          "password": "456123" }
-
     parameters: []
     headers:
       - name: Content-Type
@@ -968,8 +965,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_45f1cd57a68f443386dfd7da29150f8f
-    parentId: fld_dad0c674a43d4b9e81fd4a4b2e1a2cd3
+  - _id: req_8bf3e4220140498c8a743029b26feba3
+    parentId: fld_0c19086286864557ae60ad7135ce339a
     modified: 1760912529074
     created: 1760912529074
     url: "{{ _.baseUrl_producao }}/api/users"
@@ -991,8 +988,8 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_dad0c674a43d4b9e81fd4a4b2e1a2cd3
-    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
+  - _id: fld_0c19086286864557ae60ad7135ce339a
+    parentId: wrk_9e0446091d7542b7a1f30cdc4eca91c6
     modified: 1760912529055
     created: 1760912529055
     name: Usuário (Produção)
@@ -1001,8 +998,8 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1760826203112
     _type: request_group
-  - _id: req_6f76ecc9952c433c8fe3f8a73a4ef8ff
-    parentId: fld_dad0c674a43d4b9e81fd4a4b2e1a2cd3
+  - _id: req_25e9419849d64e3199b5378524eae7f3
+    parentId: fld_0c19086286864557ae60ad7135ce339a
     modified: 1760912962638
     created: 1760912529080
     url: "{{ _.baseUrl_producao }}/api/profile"
@@ -1029,9 +1026,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_b26eafb6d85d4d96b46c7c343e145615
-    parentId: fld_dad0c674a43d4b9e81fd4a4b2e1a2cd3
-    modified: 1760919980450
+  - _id: req_e57486cc6fb04b35b4286a77f773ce02
+    parentId: fld_0c19086286864557ae60ad7135ce339a
+    modified: 1761401939924
     created: 1760912529066
     url: "{{ _.baseUrl_producao }}/api/login"
     name: "[POST] Login do Usuário"
@@ -1059,9 +1056,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_bce28488e4e24de68e83257cb816e586
-    parentId: fld_dad0c674a43d4b9e81fd4a4b2e1a2cd3
-    modified: 1760917912849
+  - _id: req_f68b647df25145a996c3e795d8a144aa
+    parentId: fld_0c19086286864557ae60ad7135ce339a
+    modified: 1761401405554
     created: 1760912529058
     url: "{{ _.baseUrl_producao }}/api/register"
     name: "[POST] Registrar Usuário"
@@ -1097,42 +1094,36 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: env_77476824a8c24b795c5a643eb76e4bb1c7d5fc2c
-    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
-    modified: 1760826985831
-    created: 1760825079638
+  - _id: env_62fa3f595db5314982328503c1906d22f7953f31
+    parentId: wrk_9e0446091d7542b7a1f30cdc4eca91c6
+    modified: 1761354336968
+    created: 1761354336968
     name: Base Environment
-    data:
-      token: ""
-      idDaNota: ""
-      idDeOutroUsuario: ""
-    dataPropertyOrder:
-      "&":
-        - token
-        - idDaNota
-        - idDeOutroUsuario
+    data: {}
+    dataPropertyOrder: null
     color: null
     isPrivate: false
-    metaSortKey: 1760825079638
+    metaSortKey: 1761354336968
     _type: environment
-  - _id: jar_77476824a8c24b795c5a643eb76e4bb1c7d5fc2c
-    parentId: wrk_69a3f0d813904ff884fd8df580759e7e
-    modified: 1760825079644
-    created: 1760825079644
+  - _id: jar_62fa3f595db5314982328503c1906d22f7953f31
+    parentId: wrk_9e0446091d7542b7a1f30cdc4eca91c6
+    modified: 1761354336970
+    created: 1761354336970
     name: Default Jar
     cookies: []
     _type: cookie_jar
-  - _id: env_f6f6b574ad344b73ae6a75c02842bc10
-    parentId: env_77476824a8c24b795c5a643eb76e4bb1c7d5fc2c
-    modified: 1760919625116
-    created: 1760827102125
+  - _id: env_c7bec0a34f4948a9bf5464416aa49e9a
+    parentId: env_62fa3f595db5314982328503c1906d22f7953f31
+    modified: 1761401885421
+    created: 1761354939979
     name: Ambiente Local
     data:
       baseUrl_local: http://localhost:3000
-      token_local: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjU3OWMyZDgxZWFjOTQ2NmVmYjVjNyIsImVtYWlsIjoiYW5kcmUzQGVtYWlsLmNvbSIsImlhdCI6MTc2MDkxODgyMSwiZXhwIjoxNzYxMDA1MjIxfQ.gPnYXECU2f-E6EGYzkwXi0rI961L4lIip2qQDgFvo4E
-      idDaNota_local: 68f57a6dd81eac9466efb5ce
-      idDeOutroUsuario_local: 68f5799e903fcdeed94fbb37
+      token_local: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhbmRyZTNAZW1haWwuY29tIiwiaWF0IjoxNzYxMzU3NTg2LCJleHAiOjE3NjE0NDM5ODZ9.SspHDM2UUeayrr296E5uKjASSw4YCiY-LsW4djHYGs4
+      idDaNota_local: "2"
+      idDeOutroUsuario_local: ""
       title_local: Estudo
+      token_local_invalido: ""
     dataPropertyOrder:
       "&":
         - baseUrl_local
@@ -1140,21 +1131,23 @@ resources:
         - idDaNota_local
         - idDeOutroUsuario_local
         - title_local
-    color: "#d20f0f"
+        - token_local_invalido
+    color: "#d70f0f"
     isPrivate: false
-    metaSortKey: 1760827102125
+    metaSortKey: 1761354939979
     _type: environment
-  - _id: env_4becebcd2cbe4b6086352351867e6e0c
-    parentId: env_77476824a8c24b795c5a643eb76e4bb1c7d5fc2c
-    modified: 1760920078509
-    created: 1760827117507
+  - _id: env_cad382c0680f4b7c8451af06ffb36ef7
+    parentId: env_62fa3f595db5314982328503c1906d22f7953f31
+    modified: 1761401960768
+    created: 1761354952610
     name: Ambiente Produção
     data:
-      baseUrl_producao: https://mini-projeto-fullstack-parte2.vercel.app
-      token_producao: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjU3OTllOTAzZmNkZWVkOTRmYmIzNyIsImVtYWlsIjoibWFyaWEyQGVtYWlsLmNvbSIsImlhdCI6MTc2MDkxOTk4MiwiZXhwIjoxNzYxMDA2MzgyfQ.tH6OCszdRH-GkPWkhzyU3Y0oVKqHc3eDSOj-5BqUemQ
-      idDaNota_producao: 68f57a8aaac4064822bfbdb4
+      baseUrl_producao: https://backend-express-postgresql-flame.vercel.app
+      token_producao: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYXJpYTJAZW1haWwuY29tIiwiaWF0IjoxNzYxNDAxOTQxLCJleHAiOjE3NjE0ODgzNDF9.HLO-oaX-E6WQtpb8ONndW5cQ3cHsFg8Raekefwip3Qc
+      idDaNota_producao: "2"
       idDeOutroUsuario_producao: ""
       title_producao: Estudo
+      token_producao_invalido: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuYXRoYWxpYTFAZW1haWwuY29tIiwiaWF0IjoxNzYxNDAxNDI0LCJleHAiOjE3NjE0ODc4MjR9.yWfRDCY-tkNYJdy7cH7MrGIzY3KuXuXHZSzsVOJDJXY8854
     dataPropertyOrder:
       "&":
         - baseUrl_producao
@@ -1162,7 +1155,8 @@ resources:
         - idDaNota_producao
         - idDeOutroUsuario_producao
         - title_producao
+        - token_producao_invalido
     color: "#7d69cb"
     isPrivate: false
-    metaSortKey: 1760827117507
+    metaSortKey: 1761354940029
     _type: environment
