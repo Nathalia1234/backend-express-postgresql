@@ -251,7 +251,7 @@ Header:  ```Authorization: Bearer {{token_local}}```
 
 A pasta `requests/` contém todas as requisições (local e produção).
 
-![alt text](./src/img/image.png)
+![alt text](./src/img/image-0.png)
 
 - [📄 Download requests.yaml](./requests/requests.yaml)
 
