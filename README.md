@@ -30,7 +30,7 @@ Todo o CRUD de usuários e notas foi mantido, assim como os logs, tratamento de 
 
 ## 🟣 Estrutura de Pastas
 
-![alt text]()
+![alt text](./src/img/img-0.png)
 
 ---
 ## 🟣 Como Executar Localmente
