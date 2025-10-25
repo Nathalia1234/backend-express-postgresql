@@ -1,5 +1,8 @@
 #  Mini-Projeto Fullstack Parte I/II.v2 — Backend com PostgreSQL
 
+## 📦 Versão
+**Tag:** [v2.0.0](https://github.com/Nathalia1234/backend-express-postgresql/releases/tag/v2.0.0)
+
 
 ## 🟣 Descrição Geral
 
@@ -243,7 +246,7 @@ Obs.: No ambiente de produção, a variável **DATABASE_URL** foi substituída p
 
 Foram criados dois ambientes no Insomnia:
 - **Local:** `http://localhost:3000`
-- **Produção:** ``
+- **Produção:** https://backend-express-postgresql-flame.vercel.app/
 
 Em ambos:
 
@@ -286,7 +289,12 @@ Backend em Produção no meu domínio pessoal:
 Obs.: Foi utilizado o banco em nuvem **Neon.tech** para armazenamento de dados em produção.
 
 - Após o deploy, o backend será acessível no vercel.
+---
+## 🌐 Deploy em Produção
+- **API com PostgreSQL:** [https://pg-notes.nathaliaohana.dev](https://pg-notes.nathaliaohana.dev)
+- **API com MongoDB:** [https://notes.nathaliaohana.dev](https://notes.nathaliaohana.dev)
 
+>  Ambas as versões estão em produção: a primeira com MongoDB (Parte I/II.v1) e a segunda com PostgreSQL (Parte I/II.v2), mantendo as mesmas rotas, funcionalidades e autenticação JWT.
 ---
 
 ## 🟣 Vídeo de Demonstração
