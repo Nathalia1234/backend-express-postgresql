@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { connectDatabase } from "./src/database/connect.js";
+import { pool } from "./src/database/connect.js";
 
 //import { pool } from "./src/database/connect.js"; 
 import userRoutes from "./src/routes/user.routes.js";
@@ -21,7 +21,7 @@ const app = express();
 // -----------------------------
 // Conexão com o PostgreSQL
 // -----------------------------
-connectDatabase();
+pool.connect()
 
 // -----------------------------
 // Middlewares globais
