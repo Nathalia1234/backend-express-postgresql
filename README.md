@@ -107,9 +107,9 @@ O objetivo foi garantir o funcionamento completo da API antes do deploy em produ
 
 🔹Tabela de **users** e **notes**:
 
-![alt text]()
+![alt text](src/img/img-1.png)
 
-![alt text]()
+![alt text](src/img/img-2.png)
 
 
 
@@ -118,19 +118,21 @@ O objetivo foi garantir o funcionamento completo da API antes do deploy em produ
 
 🔹 Registro de usuário:
 
-![alt text]()
+![alt text](src/img/img-3.png)
+
+![alt text](src/img/img-4.png)
 
 🔹 Login de usuário:
 
-![alt text]()
+![alt text](src/img/img-5.png)
 
 🔹 Criação de nota:
 
-![alt text]()
+![alt text](src/img/img-6.png)
 
 🔹 Acesso de nota de outro usuário:
 
-![alt text]()
+![alt text](src/img/img-7.png)
 
 > Os testes locais confirmaram o correto funcionamento da API antes da migração para o banco remoto Neon.tech e deploy na Vercel.
 ---
@@ -163,18 +165,17 @@ Ambiente de hospedagem: **Vercel**
 ## 🟣 Dados registrados no banco remoto
 
 Tabela **users**:
-![alt text]()
+![alt text](src/img/img-8.png)
 
 
 Tabela **notes**:
-![alt text]()
+![alt text](src/img/img-9.png)
 
 > A API apresentou o mesmo comportamento do ambiente local, com dados sendo armazenados e consultados com sucesso no banco remoto.
 --- 
 ## 🟣 Logs registrados no Vercel
 
-![alt text]()
-
+![alt text](src/img/img-10.png)
 
 --- 
 
@@ -233,7 +234,7 @@ Obs.: No ambiente de produção, a variável **DATABASE_URL** foi substituída p
 
 ## 🟣 Modelagem do Banco de Dados
 
-![alt text]()
+![alt text](src/img/img-11.png)
 
 > O gerenciamento do banco de dados em ambiente local foi realizado com o **pgAdmin 4**, permitindo a criação das tabelas, consultas SQL e acompanhamento das inserções durante os testes.
 
@@ -251,7 +252,7 @@ Header:  ```Authorization: Bearer {{token_local}}```
 
 A pasta `requests/` contém todas as requisições (local e produção).
 
-![alt text]()
+![alt text](src/img/img-12.png)
 
 - [📄 Download requests.yaml](./requests/requests.yaml)
 
