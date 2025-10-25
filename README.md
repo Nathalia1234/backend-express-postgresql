@@ -1,4 +1,4 @@
-# 🧩 Mini-Projeto Fullstack Parte I/II.v2 — Backend com PostgreSQL
+#  Mini-Projeto Fullstack Parte I/II.v2 — Backend com PostgreSQL
 
 
 ## 🟣 Descrição Geral
