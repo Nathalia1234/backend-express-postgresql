@@ -1,0 +1,6 @@
+SELECT * FROM public.users
+ORDER BY id ASC 
+
+--DELETE FROM public.users;
+
+--TRUNCATE TABLE public.users RESTART IDENTITY CASCADE;
