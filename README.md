@@ -30,7 +30,7 @@ Todo o CRUD de usuários e notas foi mantido, assim como os logs, tratamento de 
 
 ## 🟣 Estrutura de Pastas
 
-![alt text](src/img/image-1.png)
+![alt text](src/img/image-0.png)
 
 ---
 ## 🟣 Como Executar Localmente
@@ -251,7 +251,7 @@ Header:  ```Authorization: Bearer {{token_local}}```
 
 A pasta `requests/` contém todas as requisições (local e produção).
 
-![alt text](./src/img/image-0.png)
+![alt text](./src/img/image-11.png)
 
 - [📄 Download requests.yaml](./requests/requests.yaml)
 
