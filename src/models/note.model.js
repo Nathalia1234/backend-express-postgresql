@@ -1,24 +1,36 @@
-import mongoose from "mongoose";
+import { pool } from "../database/connect.js";
 
-const noteSchema = new mongoose.Schema(
-  {
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
-    },
-    title: {
-      type: String,
-      required: true,
-      trim: true
-    },
-    content: {
-      type: String,
-      trim: true,
-      default: ''
-    }
+export const NoteModel = {
+  async create({ userId, title, content }) {
+    const query = `
+      INSERT INTO notes (user_id, title, content)
+      VALUES ($1, $2, $3)
+      RETURNING *;
+    `;
+    const values = [userId, title, content];
+    const result = await pool.query(query, values);
+    return result.rows[0];
   },
-  { timestamps: true }
-);
 
-export default mongoose.model("Note", noteSchema);
+  async findAllByUser(userId) {
+    const result = await pool.query("SELECT * FROM notes WHERE user_id = $1", [userId]);
+    return result.rows;
+  },
+
+  async findById(id) {
+    const result = await pool.query("SELECT * FROM notes WHERE id = $1", [id]);
+    return result.rows[0];
+  },
+
+  async update(id, { title, content }) {
+    const result = await pool.query(
+      "UPDATE notes SET title = $1, content = $2 WHERE id = $3 RETURNING *",
+      [title, content, id]
+    );
+    return result.rows[0];
+  },
+
+  async delete(id) {
+    await pool.query("DELETE FROM notes WHERE id = $1", [id]);
+  },
+};

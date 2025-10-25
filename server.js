@@ -1,8 +1,9 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-
 import { connectDatabase } from "./src/database/connect.js";
+
+//import { pool } from "./src/database/connect.js"; 
 import userRoutes from "./src/routes/user.routes.js";
 import noteRoutes from "./src/routes/note.routes.js";
 
@@ -17,6 +18,10 @@ dotenv.config();
 // -----------------------------
 const app = express();
 
+// -----------------------------
+// Conexão com o PostgreSQL
+// -----------------------------
+connectDatabase();
 
 // -----------------------------
 // Middlewares globais
@@ -26,15 +31,10 @@ app.use(express.json());
 
 
 // -----------------------------
-// Conecta ao MongoDB Atlas
-// -----------------------------
-connectDatabase();
-
-// -----------------------------
 // Rotas principais
 // -----------------------------
-app.use("/api", userRoutes);
-app.use("/api/notes", noteRoutes);
+app.use('/api', userRoutes);
+app.use('/api/notes', noteRoutes);
 
 // -----------------------------
 // Rota base — para teste local e vercel
@@ -47,6 +47,7 @@ app.get("/", (req, res) => {
 // Porta de execução
 // -----------------------------
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
   console.log(`✅ Servidor rodando na porta ${PORT}`);
 });

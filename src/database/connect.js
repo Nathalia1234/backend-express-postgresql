@@ -1,17 +1,19 @@
-import mongoose from "mongoose";
+import pkg from 'pg';
+const { Pool } = pkg;
 import dotenv from "dotenv";
 
-// Carrega as variáveis de ambiente
 dotenv.config();
 
-// Função de conexão com o banco
-export async function connectDatabase() {
+export const connectDatabase = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log("✅ Conectado ao MongoDB");
-  } catch (error) {
-    console.error("❌ Erro ao conectar ao MongoDB:", error.message);
-    process.exit(1);
-  }
-}
+    const pool = new Pool({
+      connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false },
+    });
 
+    await pool.connect();
+    console.log("🟢 Conexão com PostgreSQL estabelecida com sucesso!");
+  } catch (error) {
+    console.error("🔴 Erro ao conectar ao PostgreSQL:", error);
+  }
+};

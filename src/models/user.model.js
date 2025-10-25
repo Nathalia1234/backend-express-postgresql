@@ -1,29 +1,31 @@
-import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+import { pool } from "../database/connect.js";
 
-// Define o schema do usuário
-const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
-});
+export const UserModel = {
+  async create({ name, email, password }) {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const query = `
+      INSERT INTO users (name, email, password)
+      VALUES ($1, $2, $3)
+      RETURNING id, name, email;
+    `;
+    const values = [name, email, hashedPassword];
+    const result = await pool.query(query, values);
+    return result.rows[0];
+  },
 
-// Middleware para criptografar a senha antes de salvar
-userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) return next();
-  try {
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
-  } catch (error) {
-    next(error);
-  }
-});
+  async findByEmail(email) {
+    const result = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
+    return result.rows[0];
+  },
 
-// Método para comparar senha
-userSchema.methods.comparePassword = async function (password) {
-  return bcrypt.compare(password, this.password);
+  async findById(id) {
+    const result = await pool.query("SELECT id, name, email FROM users WHERE id = $1", [id]);
+    return result.rows[0];
+  },
+
+  async findAll() {
+    const result = await pool.query("SELECT id, name, email FROM users");
+    return result.rows;
+  },
 };
-
-// Exporta o modelo
-export default mongoose.model("User", userSchema);
