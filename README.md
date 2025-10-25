@@ -30,7 +30,7 @@ Todo o CRUD de usuários e notas foi mantido, assim como os logs, tratamento de 
 
 ## 🟣 Estrutura de Pastas
 
-![alt text](src/img/image-0.png)
+![alt text]()
 
 ---
 ## 🟣 Como Executar Localmente
@@ -107,9 +107,9 @@ O objetivo foi garantir o funcionamento completo da API antes do deploy em produ
 
 🔹Tabela de **users** e **notes**:
 
-![alt text](./src/img/image-8.png)
+![alt text]()
 
-![alt text](./src/img/image-9.png)
+![alt text]()
 
 
 
@@ -118,19 +118,19 @@ O objetivo foi garantir o funcionamento completo da API antes do deploy em produ
 
 🔹 Registro de usuário:
 
-![alt text](./src/img/image-11.png)
+![alt text]()
 
 🔹 Login de usuário:
 
-![alt text](./src/img/image-3.png)
+![alt text]()
 
 🔹 Criação de nota:
 
-![alt text](./src/img/image-4.png)
+![alt text]()
 
 🔹 Acesso de nota de outro usuário:
 
-![alt text](./src/img/image-5.png)
+![alt text]()
 
 > Os testes locais confirmaram o correto funcionamento da API antes da migração para o banco remoto Neon.tech e deploy na Vercel.
 ---
@@ -163,17 +163,17 @@ Ambiente de hospedagem: **Vercel**
 ## 🟣 Dados registrados no banco remoto
 
 Tabela **users**:
-![alt text](./src/img/image-6.png)
+![alt text]()
 
 
 Tabela **notes**:
-![alt text](./src/img/image-7.png)
+![alt text]()
 
 > A API apresentou o mesmo comportamento do ambiente local, com dados sendo armazenados e consultados com sucesso no banco remoto.
 --- 
 ## 🟣 Logs registrados no Vercel
 
-![alt text](./src/img/image-10.png)
+![alt text]()
 
 
 --- 
@@ -233,7 +233,7 @@ Obs.: No ambiente de produção, a variável **DATABASE_URL** foi substituída p
 
 ## 🟣 Modelagem do Banco de Dados
 
-![alt text](src/img/image-2.png)
+![alt text]()
 
 > O gerenciamento do banco de dados em ambiente local foi realizado com o **pgAdmin 4**, permitindo a criação das tabelas, consultas SQL e acompanhamento das inserções durante os testes.
 
@@ -251,7 +251,7 @@ Header:  ```Authorization: Bearer {{token_local}}```
 
 A pasta `requests/` contém todas as requisições (local e produção).
 
-![alt text](./src/img/image-11.png)
+![alt text]()
 
 - [📄 Download requests.yaml](./requests/requests.yaml)
 
