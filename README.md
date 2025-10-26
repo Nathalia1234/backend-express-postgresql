@@ -1,8 +1,11 @@
 #  Mini-Projeto Fullstack Parte I/II.v2 — Backend com PostgreSQL
 
-## 📦 Versão
-**Tag:** [v2.0.0](https://github.com/Nathalia1234/backend-express-postgresql/releases/tag/v2.0.0)
+## 🟣 Versão
+**Tag de versão:** [v2.0.0](https://github.com/Nathalia1234/backend-express-postgresql/releases/tag/v2.0.0)
 
+Esta versão corresponde à **segunda etapa** do Mini-Projeto Fullstack, na qual o backend foi **migrado de MongoDB para PostgreSQL**, mantendo todas as funcionalidades da versão anterior.
+
+---
 
 ## 🟣 Descrição Geral
 
@@ -33,8 +36,50 @@ Todo o CRUD de usuários e notas foi mantido, assim como os logs, tratamento de 
 
 ## 🟣 Estrutura de Pastas
 
-![alt text](https://drive.google.com/file/d/1dpqyIq6g0rhM5S4trX-vYNgsefbzdlLH/view?usp=sharing)
+Abaixo está a organização dos arquivos e diretórios principais do projeto:
 
+```
+backend-express-postgresql/
+├── node_modules
+├── requests/
+│   └── requests.yaml
+│
+├── src/
+│   ├── controllers/
+│   │   ├── note.controller.js
+│   │   └── user.controller.js
+│   │
+│   ├── database/
+│   │   └── connect.js
+│   │
+│   ├── middlewares/
+│   │   ├── logger.js
+│   │   └── verifyToken.js
+│   │
+│   ├── models/
+│   │   ├── note.model.js
+│   │   └── user.model.js
+│   │
+│   ├── routes/
+│   │   ├── note.routes.js
+│   │   └── user.routes.js
+│   │
+│   ├── services/
+│   │   ├── note.service.js
+│   │   └── user.service.js
+│
+├── .env
+├── .env.local
+├── .gitignore
+├── criacao_tabelas.sql
+├── notas.sql
+├── package-lock.json
+├── package.json
+├── README.md
+├── server.js
+└── usuarios.sql
+```
+> **A estrutura segue o padrão MVC (Model-View-Controller)**, separando lógica de controle, regras de negócio, modelos de dados e rotas.
 ---
 ## 🟣 Como Executar Localmente
 
@@ -108,36 +153,177 @@ O objetivo foi garantir o funcionamento completo da API antes do deploy em produ
 ---
 ## 🟣 Dados registrados no banco local 
 
-🔹Tabela de **users** e **notes**:
+Durante os testes locais, as requisições realizadas via **Insomnia** inseriram corretamente os dados nas tabelas `users` e `notes` do banco **PostgreSQL**, conforme verificado pelo **pgAdmin 4**.
 
-![alt text](/img/img-1.png)
+### 🔹Tabela `users` 
 
-![alt text](/img/img-2.png)
+A tabela `users` contém os seguintes campos:
+- `id` — identificador único do usuário (chave primária);
+- `name` — nome do usuário;
+- `email` — endereço de e-mail único;
+- `password` — senha criptografada com **bcrypt**.
+
+**Exemplo de registros armazenados localmente:**
+
+| id | name             | email               | password (hash) |
+|----|------------------|---------------------|------------------|
+| 1  | Nathalia Ohana1  | nathalia1@email.com | `$2b$10$7rDf16oMOC...` |
+| 2  | André Oliveira3  | andre3@email.com    | `$2b$10$Szm2mgBbSM...` |
+
+---
+
+### 🔹Tabela de  `notes`
+
+A tabela `notes` registra as anotações associadas a cada usuário.  
+Os campos principais são:
+- `id` — identificador único da nota (chave primária);
+- `title` — título da anotação;
+- `content` — conteúdo textual da nota;
+- `user_id` — referência ao usuário criador da nota (chave estrangeira para `users.id`).
+
+**Exemplo de registros armazenados:**
+
+| id | title                   | content                                              | user_id |
+|----|--------------------------|------------------------------------------------------|---------|
+| 1  | Seminário de MongoDB     | Esse seminário irá acontecer na quarta-feira        | 2       |
+| 2  | Estudo: Primeira nota    | Essa é minha primeira anotação pessoal.             | 2       |
+
+---
+
+> As tabelas `users` e `notes` foram criadas corretamente e possuem relacionamento **1:N** (um usuário pode ter várias notas).  
+> As operações de **cadastro, login, criação, listagem e atualização de notas** foram validadas localmente e refletidas no banco via **pgAdmin**.
 
 
 
 ---
 ## 🟣 Exemplo de requisições locais
 
-🔹 Registro de usuário:
+Durante os testes locais, as requisições foram executadas no **Insomnia** utilizando a variável `{{baseUrl_local}}`, apontando para o servidor local em execução (`http://localhost:3000`).
 
-![alt text](/img/img-3.png)
 
-![alt text](/img/img-4.png)
+### 🔹 Registro de usuário:
 
-🔹 Login de usuário:
+**Endpoint:**  
+`POST {{baseUrl_local}}/api/register`
 
-![alt text](/img/img-5.png)
+**Primeiro cadastro:**
 
-🔹 Criação de nota:
+**Corpo da requisição:**
+```json
+{
+  "name": "Nathalia Ohana1",
+  "email": "nathalia1@email.com",
+  "password": "123456"
+}
+```
 
-![alt text](/img/img-6.png)
+**Resposta (201 Created):**
+```json
+{
+  "message": "Usuário cadastrado com sucesso!",
+  "user": {
+    "id": 2,
+    "name": "Nathalia Ohana1",
+    "email": "nathalia1@email.com"
+  }
+}
+```
+---
 
-🔹 Acesso de nota de outro usuário:
+**Segundo cadastro:**
+```json
+{
+  "name": "André Oliveira3",
+  "email": "andre3@email.com",
+  "password": "456123"
+}
+```
+**Resposta (201 Created):**
+```json
+{
+  "message": "Usuário cadastrado com sucesso!",
+  "user": {
+    "id": 3,
+    "name": "André Oliveira3",
+    "email": "andre3@email.com"
+  }
+}
+```
 
-![alt text](/img/img-7.png)
+### 🔹 Login de usuário:
 
-> Os testes locais confirmaram o correto funcionamento da API antes da migração para o banco remoto Neon.tech e deploy na Vercel.
+**Endpoint:**  
+
+`POST {{baseUrl_local}}/api/login`
+
+**Corpo da requisição:**
+```json
+{
+  "email": "nathalia1@email.com",
+  "password": "123456"
+}
+```
+
+**Resposta (200 OK):**
+```json
+{
+  "message": "Login realizado com sucesso!",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6..."
+}
+```
+> O token retornado foi utilizado nas próximas requisições como autenticação Bearer Token.
+
+---
+
+### 🔹 Criação de nota:
+
+**Endpoint:**  
+
+`POST {{baseUrl_local}}/api/notes`
+
+**Cabeçalho (Header):**
+```
+Authorization: Bearer {{token_local}}
+```
+
+**Corpo da requisição:**
+```json
+{
+  "title": "Estudo: Primeira nota",
+  "content": "Essa é minha primeira anotação pessoal."
+}
+```
+**Resposta (201 Created):**
+```json
+{
+  "id": 3,
+  "title": "Estudo: Primeira nota",
+  "content": "Essa é minha primeira anotação pessoal.",
+  "user_id": 2
+}
+```
+---
+
+### 🔹 Acesso de nota de outro usuário:
+
+**Endpoint:**  
+
+`GET {{baseUrl_local}}/api/notes/:idDaNota_local`
+
+**Cabeçalho (Header):**
+```
+Authorization: Bearer {{token_local}}
+```
+
+**Resposta (403 Forbidden):**
+```json
+{
+  "error": "Acesso negado. Esta nota pertence a outro usuário."
+}
+```
+
+> Essa requisição valida a regra de segurança que impede que um usuário acesse notas criadas por outro.
+
 ---
 ## 🟣 Testes em Produção
 
@@ -167,18 +353,79 @@ Ambiente de hospedagem: **Vercel**
 ---
 ## 🟣 Dados registrados no banco remoto
 
-Tabela **users**:
-![alt text](/img/img-8.png)
+Após o deploy da API e a configuração do banco de dados remoto **Neon.tech**, as tabelas `users` e `notes` foram consultadas diretamente pelo painel **Database Studio**, confirmando o armazenamento e relacionamento correto dos dados.
+
+---
+
+### 🔹 Tabela `users`
+
+A tabela `users` contém as informações dos usuários cadastrados via API em produção.
+
+**Campos principais:**
+- `id` — identificador único (chave primária)
+- `name` — nome do usuário
+- `email` — e-mail do usuário
+- `password` — senha criptografada
+- `notes` — relação com as anotações criadas pelo usuário
+
+**Exemplo de registros armazenados no banco remoto:**
+
+| id | name             | email               | password (hash)                    |
+|----|------------------|---------------------|------------------------------------|
+| 1  | Nathalia Ohana1  | nathalia1@email.com | `$2b$10$qhsgYbgoLbHLDyO6...`       |
+| 2  | Maria Souza2     | maria2@email.com    | `$2b$10$eFaFM8RokeVfzsv...`        |
+
+---
+
+### 🔹 Tabela `notes`
+
+A tabela `notes` armazena as anotações criadas pelos usuários autenticados, vinculadas pelo campo `user_id`.
+
+**Campos principais:**
+- `id` — identificador da nota (chave primária)
+- `title` — título da nota
+- `content` — conteúdo textual
+- `user_id` — referência ao autor da nota (chave estrangeira para `users.id`)
+
+**Exemplo de registros armazenados no banco remoto:**
+
+| id | title                   | content                                             | user_id |
+|----|--------------------------|-----------------------------------------------------|---------|
+| 1  | Estudo: Primeira nota    | Essa é minha primeira anotação pessoal.            | 1       |
+| 2  | Estudo: Segunda nota     | Essa é minha segunda anotação pessoal.             | 1       |
+| 3  | Seminário de MongoDB     | Esse seminário irá acontecer na quarta-feira.      | 1       |
+
+---
+
+>  **A API apresentou o mesmo comportamento do ambiente local**, com dados sendo armazenados, consultados e validados com sucesso no banco remoto **Neon.tech** após o deploy na **Vercel**.
 
 
-Tabela **notes**:
-![alt text](/img/img-9.png)
-
-> A API apresentou o mesmo comportamento do ambiente local, com dados sendo armazenados e consultados com sucesso no banco remoto.
 --- 
 ## 🟣 Logs registrados no Vercel
 
-![alt text](/img/img-10.png)
+Durante os testes em produção, os logs disponibilizados no painel da **Vercel** confirmaram o funcionamento completo da API integrada ao banco remoto **Neon.tech**.
+
+Os registros exibiram os eventos de autenticação, criação, leitura, atualização e exclusão de notas, além dos retornos de erro devidamente tratados pelo middleware de validação.
+
+---
+
+### 🔹 Exemplos de logs registrados
+
+| Data e Hora | Status | Endpoint | Mensagem |
+|--------------|---------|-----------|-----------|
+| **OCT 25, 11:10:24** | `POST 201` | `/api/register` | 🟢 Novo usuário registrado: *nathalia1@email.com* |
+| **OCT 25, 11:10:25** | `POST 201` | `/api/register` | 🟢 Novo usuário registrado: *maria2@email.com* |
+| **OCT 25, 11:11:19** | `POST 201` | `/api/notes` | 🟢 Usuário 1 criou nota com sucesso (ID: 1) |
+| **OCT 25, 11:11:16** | `POST 201` | `/api/notes` | 🟢 Usuário 1 criou nota com sucesso (ID: 2) |
+| **OCT 25, 11:15:03** | `GET 200` | `/api/notes` | 🟢 Usuário 1 listou 3 notas |
+| **OCT 25, 11:19:29** | `GET 403` | `/api/notes/2` | 🔒 Usuário 2 tentou acessar nota de outro usuário |
+| **OCT 25, 11:18:22** | `POST 401` | `/api/login` | ⚠️ Tentativa de login com senha incorreta |
+| **OCT 25, 11:17:37** | `POST 400` | `/api/notes` | 🔴 Tentativa de criar nota com dados incompletos |
+| **OCT 25, 11:19:47** | `GET 200` | `/api/profile` | 🟢 Usuário acessou seu perfil com sucesso |
+
+---
+
+> Todas as requisições esperadas foram registradas, incluindo **operações bem-sucedidas e mensagens de erro controladas**.  
 
 --- 
 
@@ -237,25 +484,60 @@ Obs.: No ambiente de produção, a variável **DATABASE_URL** foi substituída p
 
 ## 🟣 Modelagem do Banco de Dados
 
-![alt text](/img/img-11.png)
+O gerenciamento do banco de dados em ambiente local foi realizado com o **pgAdmin 4**, permitindo a criação das tabelas, consultas SQL e acompanhamento das inserções durante os testes.
 
-> O gerenciamento do banco de dados em ambiente local foi realizado com o **pgAdmin 4**, permitindo a criação das tabelas, consultas SQL e acompanhamento das inserções durante os testes.
+--- 
 
+### 🔹 Estrutura das tabelas criadas
+
+O banco de dados foi modelado com duas tabelas principais: `users` e `notes`.  A tabela `users` armazena os dados dos usuários, enquanto `notes` registra as anotações vinculadas ao campo `user_id`.
+
+```sql
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS notes (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    content TEXT,
+    user_id INTEGER REFERENCES users(id)
+);
+```
+
+> **Descrição da modelagem:**
+> - A chave primária **(id)** é do tipo SERIAL, garantindo incremento automático.
+> - O campo **email** possui a restrição UNIQUE, impedindo cadastros duplicados.
+> - O campo **user_id** na tabela notes é uma chave estrangeira, estabelecendo o relacionamento entre o autor e suas anotações.
+> - A estrutura foi projetada para garantir integridade referencial, simplicidade e escalabilidade no armazenamento das notas.
 ---
+
 ## 🟣 Testes de Requisição (Insomnia)
 
-Foram criados dois ambientes no Insomnia:
+Foram criados dois ambientes no **Insomnia** para validação das rotas da API:
+
 - **Local:** `http://localhost:3000`
 - **Produção:** https://backend-express-postgresql-flame.vercel.app/
 
-Em ambos:
+Em ambos os ambientes, foi utilizado o mesmo cabeçalho de autenticação JWT:
 
-Header:  ```Authorization: Bearer {{token_local}}```
+```bash
+Header:  Authorization: Bearer {{token_local}}
+```
 
 
-A pasta `requests/` contém todas as requisições (local e produção).
+A pasta `requests/` contém todas as requisições configuradas no Insomnia, incluindo rotas de **registro, login, criação, atualização, exclusão e listagem** de notas, tanto em ambiente local quanto em produção.
 
-![alt text](/img/img-12.png)
+**Estrutura:**
+```
+requests/
+└── requests.yaml
+```
+
+O arquivo `requests.yaml` pode ser importado diretamente no Insomnia para reproduzir todos os testes realizados:
 
 - [📄 Download requests.yaml](./requests/requests.yaml)
 
@@ -269,7 +551,7 @@ Banco de Dados em Produção:  **Neon.tech** (https://neon.tech)
 
 Base URL Local: http://localhost:3000
 
-Backend em Produção no meu domínio pessoal: 
+Backend em Produção no meu domínio pessoal:  https://notes-pg.nathaliaohana.dev/
 
 > A API está hospedada na Vercel e conecta-se a um banco de dados PostgreSQL remoto (Neon.tech).  
 
@@ -277,39 +559,67 @@ Backend em Produção no meu domínio pessoal:
 ---
 
 ## 🟣 Deploy (Vercel)
-- Subir o projeto para o GitHub
 
-- Importar o repositório na plataforma [Vercel](https://vercel.com/) (garantindo integração direta com o repositório GitHub e execução estável da API em ambiente de produção.)
+O deploy do backend foi realizado utilizando a plataforma **[Vercel](https://vercel.com/)**, garantindo integração contínua com o repositório GitHub e execução estável da API em ambiente de produção.
 
-- Configurar variáveis de ambiente:
-    - DATABASE_URL → string do banco Neon
-    - JWT_SECRET → chave secreta para JWT
-    - PORT → 3000
+### 🔹 Etapas do Deploy
 
-Obs.: Foi utilizado o banco em nuvem **Neon.tech** para armazenamento de dados em produção.
+1. **Subir o projeto** para o repositório no GitHub.  
+2. **Importar o repositório** no painel da Vercel.  
+3. **Selecionar o branch principal (`main`)** para o deploy.  
+4. **Definir as variáveis de ambiente** necessárias para o funcionamento da API:
 
-- Após o deploy, o backend será acessível no vercel.
+| Variável | Descrição |
+|-----------|------------|
+| `DATABASE_URL` | String de conexão do banco **Neon.tech** |
+| `JWT_SECRET` | Chave secreta utilizada na autenticação JWT |
+| `PORT` | Porta padrão do servidor (definida como `3000`) |
+
+### 🔹 Banco de Dados em Produção
+
+Foi utilizado o serviço em nuvem **[Neon.tech](https://neon.tech/)** para armazenamento dos dados em produção.  
+
+A conexão foi estabelecida com sucesso, permitindo a persistência e leitura das informações através do **PostgreSQL remoto**.
+
+### 🔹 Conclusão
+
+Após o deploy:
+- A API ficou **acessível publicamente** no domínio Vercel configurado.  
+-  Todas as rotas funcionaram corretamente (registro, login, notas).  
+-  A integração entre **Vercel** e **Neon.tech** apresentou **tempo de resposta estável** e **execução sem falhas**.
+
 ---
 ## 🌐 Deploy em Produção
 - **API com PostgreSQL:** [https://pg-notes.nathaliaohana.dev](https://pg-notes.nathaliaohana.dev)
 - **API com MongoDB:** [https://notes.nathaliaohana.dev](https://notes.nathaliaohana.dev)
 
->  Ambas as versões estão em produção: a primeira com MongoDB (Parte I/II.v1) e a segunda com PostgreSQL (Parte I/II.v2), mantendo as mesmas rotas, funcionalidades e autenticação JWT.
+>  Ambas as versões estão em produção: 
+> - **Parte I / v1:** Desenvolvida com **MongoDB**;  
+> - **Parte II / v2:** Migrada para **PostgreSQL** (Neon.tech).
+
+As duas mantêm a mesma estrutura de rotas, autenticação JWT e operações CRUD completas, garantindo consistência entre os ambientes de persistência de dados.
+
+Obs.: Cada versão foi hospedada em um **subdomínio próprio**, com integração contínua via **Vercel**.
+
 ---
 
 ## 🟣 Vídeo de Demonstração
 
-O vídeo da entrega demonstra:
+O vídeo da entrega apresenta uma visão prática do funcionamento completo da API, abrangendo:
 
-- Execução das requisições no Insomnia (localmente e em produção);
+- **Execução das requisições no Insomnia** — em ambiente **local** e **produção**;  
+  
+-  **Exibição dos logs** registrados no terminal e no painel da **Vercel**;  
 
-- Exibição dos logs (localmente e em produção);
+-  **Visualização dos dados** armazenados no **pgAdmin** (banco local) e no **Neon.tech** (banco remoto);  
+  
+-  **Demonstração das rotas CRUD protegidas por autenticação JWT**.
 
-- Visualização dos dados cadastrados no pgAdmin;
+---
 
-- Rotas CRUD protegidas com JWT.
+### 🔹Assista ao vídeo de demonstração:
 
 
-🔗 [Assista ao vídeo de demonstração](https://drive.google.com/file/d/1wE6-NIC_yLPUUpDWGMzdCQBPAUQ3rlW4/view?usp=sharing)
+👉 [Clique aqui para assistir no Google Drive](https://drive.google.com/file/d/1wE6-NIC_yLPUUpDWGMzdCQBPAUQ3rlW4/view?usp=sharing)
 
 ---
