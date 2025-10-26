@@ -310,6 +310,6 @@ O vídeo da entrega demonstra:
 - Rotas CRUD protegidas com JWT.
 
 
-🔗 [Assista ao vídeo de demonstração]()
+🔗 [Assista ao vídeo de demonstração](https://drive.google.com/file/d/1wE6-NIC_yLPUUpDWGMzdCQBPAUQ3rlW4/view?usp=sharing)
 
 ---
