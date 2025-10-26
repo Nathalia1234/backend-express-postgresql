@@ -414,14 +414,15 @@ Os registros exibiram os eventos de autenticação, criação, leitura, atualiza
 | Data e Hora | Status | Endpoint | Mensagem |
 |--------------|---------|-----------|-----------|
 | **OCT 25, 11:10:24** | `POST 201` | `/api/register` | 🟢 Novo usuário registrado: *nathalia1@email.com* |
-| **OCT 25, 11:10:25** | `POST 201` | `/api/register` | 🟢 Novo usuário registrado: *maria2@email.com* |
-| **OCT 25, 11:11:19** | `POST 201` | `/api/notes` | 🟢 Usuário 1 criou nota com sucesso (ID: 1) |
-| **OCT 25, 11:11:16** | `POST 201` | `/api/notes` | 🟢 Usuário 1 criou nota com sucesso (ID: 2) |
-| **OCT 25, 11:15:03** | `GET 200` | `/api/notes` | 🟢 Usuário 1 listou 3 notas |
-| **OCT 25, 11:19:29** | `GET 403` | `/api/notes/2` | 🔒 Usuário 2 tentou acessar nota de outro usuário |
-| **OCT 25, 11:18:22** | `POST 401` | `/api/login` | ⚠️ Tentativa de login com senha incorreta |
-| **OCT 25, 11:17:37** | `POST 400` | `/api/notes` | 🔴 Tentativa de criar nota com dados incompletos |
-| **OCT 25, 11:19:47** | `GET 200` | `/api/profile` | 🟢 Usuário acessou seu perfil com sucesso |
+| **OCT 25, 11:15:25** | `POST 201` | `/api/register` | 🟢 Novo usuário registrado: *maria2@email.com* |
+| **OCT 25, 11:20:19** | `POST 201` | `/api/notes` | 🟢 Usuário 1 criou nota com sucesso (ID: 1) |
+| **OCT 25, 11:23:16** | `POST 201` | `/api/notes` | 🟢 Usuário 1 criou nota com sucesso (ID: 2) |
+| **OCT 25, 11:26:25** | `POST 201` | `/api/notes` | 🟢 Usuário 1 criou nota com sucesso (ID: 3) |
+| **OCT 25, 11:30:03** | `GET 200` | `/api/notes` | 🟢 Usuário 1 listou 3 notas |
+| **OCT 25, 11:35:29** | `GET 403` | `/api/notes/2` | 🔒 Usuário 2 tentou acessar nota de outro usuário |
+| **OCT 25, 11:40:22** | `POST 401` | `/api/login` | ⚠️ Tentativa de login com senha incorreta |
+| **OCT 25, 11:43:37** | `POST 400` | `/api/notes` | 🔴 Tentativa de criar nota com dados incompletos |
+| **OCT 25, 11:46:47** | `GET 200` | `/api/profile` | 🟢 Usuário acessou seu perfil com sucesso |
 
 ---
 
