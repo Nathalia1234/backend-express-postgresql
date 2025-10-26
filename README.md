@@ -33,7 +33,7 @@ Todo o CRUD de usuários e notas foi mantido, assim como os logs, tratamento de 
 
 ## 🟣 Estrutura de Pastas
 
-![alt text](./src/img/img-0.png)
+![alt text](https://drive.google.com/file/d/1dpqyIq6g0rhM5S4trX-vYNgsefbzdlLH/view?usp=sharing)
 
 ---
 ## 🟣 Como Executar Localmente
